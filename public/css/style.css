@@ -119,6 +119,10 @@ p {
   border: 2px solid #000;
 }
 
+.brand {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .navbar a.nav-link:not(:first-child), .navbar .nav-button {display: none;}
   .navbar a.nav-link.icon {
@@ -359,11 +363,14 @@ p {
 
 .footer-bg {
   background: #e7e7e7;
+  padding-left: -15px;
+  padding-right: -15px;
 }
 
 .footer {
   color: #000;
   padding-top: 5%;
+  /* background:#e7e7e7; */
 }
 
 #logo-img {
@@ -403,6 +410,10 @@ p {
 
 p.txt-copyright {
   font-size:100%;
+}
+
+.nop {
+  padding: 0;
 }
 
 /******************* HOW: IT: WORKS; ***************************/
@@ -634,6 +645,203 @@ p.txt-copyright {
 
 .qanda {
   margin-bottom:5%;
+}
+
+/******************************** CONTACT US *********************************/
+
+.upload-btns{
+  position:relative;
+  margin: 0 15px;
+  font-family:latoBold;
+  color:#000;
+  letter-spacing:0.7px;
+}
+
+.upload-btns i {
+  font-size: 1.1em;
+}
+
+.upload-input {
+  position:relative;
+  display:none;
+  /* top:0px; */
+  /* left:0px; */
+  width: 100%;
+  text-align:right;
+  -moz-opacity: 0;
+  filter:alpha(opacity:0);
+  opacity: 0;
+  z-index:2;
+  /* cursor:pointer; */
+}
+
+.input-btn {
+  /* position:absolute; */
+  display:inline-block;
+  font-size:16px;
+  /* top:0px; */
+  /* left:0px; */
+  z-index:1;
+  cursor:pointer;
+  border-color: black;
+  color:black;
+  /* max-width: 50%; */
+}
+
+.nlp {
+  padding-left:0px;
+}
+
+.blink {
+  font-family:latoBold;
+  size:16px;
+  letter-spacing: 0.7px;
+  color: black;
+  text-decoration: underline;
+}
+
+.form-note {
+  font-family:latoBold;
+  font-size:16px;
+  letter-spacing: 0.7px;
+  color: #9a9a9a;
+}
+
+.spaced-top {
+  margin-top: 15%;
+}
+
+.spaced-top-mod {
+  margin-top: 7%;
+}
+
+.spaced-top-min {
+  margin-top: 2%;
+}
+
+.spaced-btn-min {
+  margin-bottom: 2%;
+}
+
+.notdec {
+  text-decoration: none;
+}
+
+.contact-page-form {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.inplace {
+  position:absolute;
+  top:10%;
+  left:10%;
+  transition: all 2s;
+}
+
+.inplace-container{
+
+}
+
+.contact-page-form input, .contact-page-form textarea {
+  border: 0;
+  border-bottom: 1px solid black;
+  font-family: latoBold;
+  font-size: 18px;
+  color: #000;
+  letter-spacing: 0.8px;
+}
+
+.contact-page-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: latoBold;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  color: black;
+}
+.contact-page-form input::-moz-placeholder { /* Firefox 19+ */
+  font-family: latoBold;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  color: black;
+}
+.contact-page-form input:-ms-input-placeholder { /* IE 10+ */
+  font-family: latoBold;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  color: black;
+}
+.contact-page-form input:-moz-placeholder { /* Firefox 18- */
+  font-family: latoBold;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  color: black;
+}
+
+.contact-info-title {
+  text-transform: uppercase;
+  font-family: latoBold;
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin-bottom: 5%;
+  color:#000;
+}
+
+.contact-info {
+  font-family: latoRegular;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  color: #000;
+}
+
+.contact-info  * {
+  width: 100%;
+  display:block;
+}
+
+.contact-info .map {
+  margin-top: 10%;
+  color: #000;
+  text-decoration: underline;
+}
+
+.mailto {
+  color: #000;
+  text-decoration: underline;
+}
+
+/******************************** ADMIN PANEL *********************************/
+
+.vmenu-admin .nav-link {
+  color: #000;
+}
+
+.vmenu-admin .nav-link:hover {
+  color: #555;
+}
+
+.active-vma {
+  text-decoration: underline;
+}
+
+.admin-section {
+
+}
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.step-title {
+  text-transform: uppercase;
+}
+
+.admin-section img {
+  max-height: 40vh;
 }
 
 /******************************** MEDIA CALLS *********************************/

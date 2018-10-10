@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/a_style.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 </head>
 <body>
     <div id="app">
@@ -38,6 +42,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                      <li class="nav-item pr-3">
+                        <a href="#" class="nav-link btn btn-outline-success ml-5">Preview</a>
+                      </li>
+                      <li class="nav-item pr-3">
+                        <a href="#" class="nav-link btn btn-outline-info ml-5">Publish</a>
+                      </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -50,6 +60,7 @@
                             </li>
                         @else
                             <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -73,8 +84,37 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+          <div class="container-fluid mt-5 pt-5">
+              @if(Auth::check())
+              <div class="row pt-5">
+
+                  <div class="col-md-2">
+                    @include('admin.partials._nav_admin')
+                  </div>
+                @endif
+                @if(Auth::check())
+                <div class="col-md-7 offset-md-1">
+                @endif
+                  <div class="row justify-content-center">
+                      <div class="col-md-12">
+                          @if(Auth::check())
+                            <div class="card">
+                          @endif
+                            @yield('content')
+                          @if(Auth::check())
+                            </div>
+                          @endif
+                      </div>
+                  </div>
+              @if(Auth::check())
+              </div>
+              </div>
+              @endif
+
+          </div>
+
         </main>
     </div>
+    @include('admin.partials._scripts')
 </body>
 </html>

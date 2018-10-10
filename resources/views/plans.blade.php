@@ -78,7 +78,7 @@
       </div>
 
       <div class="col-md-5 offset-md-2 qanda">
-        <h2>can i switch plans plans?</h2>
+        <h2>can i switch plans?</h2>
 
         <p>
             At the moment you cannot switch between plans.

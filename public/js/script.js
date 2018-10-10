@@ -5,12 +5,7 @@ function hasClass(element, className){
 function mobile_menu() {
   var x = document.getElementById("navbar");
   hasClass(x, 'responsive') ? x.classList.remove('responsive') : x.classList.add('responsive');
-  // if (x.className === "navbar") {
-  // hasClass(x, 'navbar') ? x.classList.add('responsive')
-  //     x.className += " responsive";
-  // } else {
-  //     x.classList.remove = "responsive";
-  // }
+
 }
 
 window.addEventListener('load', function (event) {
@@ -18,16 +13,14 @@ window.addEventListener('load', function (event) {
 
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;
-
   var contactUs = document.querySelector('#contact-nav-link');
-
   var cForm = document.getElementById("c-form");
-
   var brand = document.querySelector('#brand');
-
   var sendMsgBtn = document.getElementById("c-form-submit");
-
   var submitMsg = document.getElementById("submitMsg");
+  var smp = document.getElementById("sendMessagePage");
+  var cpf = document.getElementById("contact-page-form");
+  var msgImg = document.getElementById("msgImg");
 
   function toggleMenu() {
     if (window.pageYOffset >= sticky) {
@@ -49,9 +42,20 @@ window.addEventListener('load', function (event) {
     smoothScroll("#form-title", 1000);
   });
 
-  brand.addEventListener('click', function() {
-    smoothScroll("#hero-section", 1000);
-  });
+  if(document.getElementById("hero-section") != null){
+    brand.addEventListener('click', function() {
+      smoothScroll("#hero-section", 1000);
+    });
+  }
+
+  if(smp != null){
+    smp.addEventListener('click', function() {
+      if(cpf != null){
+        cpf.classList.add('transparent');
+        msgImg.classList.remove("transparent");
+      }
+    });
+  }
 
   if(sendMsgBtn != null){
     sendMsgBtn.addEventListener('click', function() {
@@ -105,5 +109,7 @@ window.addEventListener('load', function (event) {
         scrollTo(element, to, duration - 10);
     }, 10);
   }
+
+  
 
 });
