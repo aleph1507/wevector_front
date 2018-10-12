@@ -2,17 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\content;
+use App\Content;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
+    public $menus = ['howitworks', 'plans', 'contact', 'customers'];
 
-    // public function menu_edit(Request)
+    public function store_menus($r){
+
+      for($i = 0; $i<count($this->menus); $i++){
+        for($j = $i+1; $j<count($this->menus); $j++){
+          if($r[$this->menus[$i]]['placement']  ==  $r[$this->menus[$j]]['placement']){
+            abort(418, ucfirst($this->menus[$i]) . ' and ' . ucfirst($this->menus[$j]) .
+              ' are both placed at position ' . $r[$this->menus[$j]]['placement']);
+          }
+        }
+      }
+
+      foreach($this->menus as $menu){
+        Content::updateOrCreate(['page' => $menu], $r[$menu])->save();
+      }
+    }
 
     public function content(Request $request) {
-
+      switch($request->call){
+        case 'set_menus':
+          $this->store_menus(json_decode($request->payload, true));
+          break;
+        default:
+          abort(418, 'No such action');
+      }
     }
+
     /**
      * Display a listing of the resource.
      *

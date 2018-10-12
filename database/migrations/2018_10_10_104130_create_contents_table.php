@@ -19,8 +19,8 @@ class CreateContentsTable extends Migration
             $table->string('page');
             $table->string('placement');
             $table->text('content');
-            $table->string('background-color');
-            $table->string('background-image');            
+            $table->string('background-image')->nullable();            
+            $table->string('background-color')->nullable();
             $table->timestamps();
         });
     }

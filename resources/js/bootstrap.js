@@ -2,6 +2,7 @@
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -13,6 +14,9 @@ try {
 
     require('bootstrap');
 } catch (e) {}
+
+
+window.toast = require('jquery-toast-plugin');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

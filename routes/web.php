@@ -39,4 +39,6 @@ Route::get('/admin/packages', 'PagesController@packages')->name('admin_packages'
 
 Route::get('/admin/contact', 'PagesController@contact')->name('admin_contact');
 
+Route::get('/admin/footer', 'PagesController@footer')->name('admin_footer');
+
 Route::post('/admin/content', 'ContentController@content')->name('content');

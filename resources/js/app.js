@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+// require('jquery-toast-plugin');
 
 window.Vue = require('vue');
 

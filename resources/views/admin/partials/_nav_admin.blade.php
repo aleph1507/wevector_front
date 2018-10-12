@@ -21,6 +21,9 @@
           <a href="{{route('admin_contact')}}" class="{{Request::is('admin/contact') ? 'nav-link active-vma' : 'nav-link'}}">Contact</a>
         </li>
         <li class="nav-item">
+          <a href="{{route('admin_footer')}}" class="{{Request::is('admin/footer') ? 'nav-link active-vma' : 'nav-link'}}">Footer</a>
+        </li>
+        <li class="nav-item">
           <a href="#" class="{{Request::is('admin/hireus') ? 'nav-link active-vma' : 'nav-link'}}">Hire Us</a>
         </li>
       </ul>

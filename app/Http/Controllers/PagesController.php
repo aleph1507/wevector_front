@@ -21,4 +21,8 @@ class PagesController extends Controller
     public function contact() {
       return view('admin.contact');
     }
+
+    public function footer() {
+      return view('admin.footer');
+    }
 }
