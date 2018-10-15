@@ -10,7 +10,6 @@ class ContentController extends Controller
     public $menus = ['howitworks', 'plans', 'contact', 'customers'];
 
     public function store_menus($r){
-
       for($i = 0; $i<count($this->menus); $i++){
         for($j = $i+1; $j<count($this->menus); $j++){
           if($r[$this->menus[$i]]['placement']  ==  $r[$this->menus[$j]]['placement']){
@@ -25,10 +24,23 @@ class ContentController extends Controller
       }
     }
 
+    public function store_entry($r, $page){
+      // echo 'count r: ' . count($r);
+      // print_r(json_decode($r));
+      // print_r($r[0]['placement']);
+      foreach($r as $entry){
+        print_r($entry);
+        Content::updateOrCreate(['page' => $page, 'placement' => $entry['placement']], $entry)->save();
+      }
+    }
+
     public function content(Request $request) {
       switch($request->call){
         case 'set_menus':
           $this->store_menus(json_decode($request->payload, true));
+          break;
+        case 'landing':
+          $this->store_entry(json_decode($request->payload, true), $request->call);
           break;
         default:
           abort(418, 'No such action');
