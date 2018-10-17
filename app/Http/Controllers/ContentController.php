@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Content;
 use Illuminate\Http\Request;
+use File;
 
 class ContentController extends Controller
 {
     public $menus = ['howitworks', 'plans', 'contact', 'customers'];
+    public $placement = '';
 
     public function store_menus($r){
       for($i = 0; $i<count($this->menus); $i++){
@@ -25,26 +27,66 @@ class ContentController extends Controller
     }
 
     public function store_entry($r, $page){
-      // echo 'count r: ' . count($r);
-      // print_r(json_decode($r));
-      // print_r($r[0]['placement']);
       foreach($r as $entry){
-        print_r($entry);
-        Content::updateOrCreate(['page' => $page, 'placement' => $entry['placement']], $entry)->save();
+        if(empty(json_decode($entry, true)))
+          continue;
+        $arr = json_decode($entry, true);
+        if(count($arr) < 2)
+          continue;
+
+        $this->placement = $arr['placement'];
+        Content::updateOrCreate(['page' => $page, 'placement' => $arr['placement']], $arr)->save();
       }
     }
 
     public function content(Request $request) {
+      $i_files = ['fi1', 's2i', 's3i', 's4i', 's5i'];
+      $check_files = false;
       switch($request->call){
         case 'set_menus':
-          $this->store_menus(json_decode($request->payload, true));
+          $this->store_menus(json_decode($request->all(), true));
           break;
         case 'landing':
-          $this->store_entry(json_decode($request->payload, true), $request->call);
+        case 'howitworks':
+        case 'plans':
+        case 'contact':
+        case 'footer':
+          $check_files = true;
+          $this->store_entry($request->all(), $request->call);
           break;
         default:
           abort(418, 'No such action');
       }
+
+      if($check_files){
+        // $i_files = ['fi1', 's2i', 's3i', 's4i', 's5i'];
+        $files_path = 'img/' . $request->call . '/';
+        foreach($i_files as $i){
+          if($request->hasFile($i)) {
+            $entry = Content::where('page', $request->call)->where('placement', $i)->first();
+            // $entry = Content::where(['page', '=', $request->call], ['placement', '=', $i])->first();
+            if($entry != null){
+              $file = $request->file($i);
+              // echo '   i:  ';
+              // print_r($i);
+              // echo '  ENTRY: ';
+              // print_r($entry);
+              // echo '  FILE:  ';
+              // print_r($file);
+              $extension = $file->getClientOriginalExtension();
+              $filename = $i . time() . '.' . $extension;
+              $file->move($files_path, $filename);
+              File::delete($files_path . $entry->content);
+              $entry->content = $filename;
+              $entry->save();
+              $entry = null;
+            } else {
+              abort(418, 'No such entry');
+            }
+          }
+        }
+      }
+
     }
 
     /**

@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
 
-  protected $fillable = [
-      'type', 'page', 'placement', 'content', 'background-color', 'background-image'
-  ];
+
+    protected $fillable = [
+        'type', 'page', 'placement', 'content', 'background-color', 'background-image'
+    ];
 
     public static function menus() {
       return self::where('type', 'menu');
@@ -30,6 +31,40 @@ class Content extends Model
     public function footers() {
       return self::where('type', 'footer');
     }
+
+    // public function element($query, $placement){
+    //   return $query->where('placement', $placement)->get();
+    // }
+
+    public function getContent(){
+      return self::content;
+    }
+
+    public function scopeHowitworks($query){
+      return $query->where('page', 'howitworks');
+    }
+
+    public function scopeLanding($query){
+      return $query->where('page', 'landing');
+    }
+
+    public function scopePackages($query){
+      return $query->where('page', 'packages');
+    }
+
+    public function scopeContact($query){
+      return $query->where('page', 'contact');
+    }
+
+    public function scopeMenu($query){
+      return $query->where('type', 'menu');
+    }
+
+    public function scopeFooter($query){
+      return $query->where('page', 'footer');
+    }
+
+
 
     // App\Content::where('page', 'howitworks')//::where('placement', 's2');
 }

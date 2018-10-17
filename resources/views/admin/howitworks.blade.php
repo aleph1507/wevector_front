@@ -11,11 +11,15 @@
           <div class="card-body">
             <div class="mt-4">
               <div class="form-group">
-                Title: <input type="text" name="landing-head-title" class="form-control section-title" value="we made things simple for you">
+                 {{-- value="we made things simple for you" --}}
+                 <?pp var_dump($content); die(); ?>
+                Title: <input type="text" name="howitworks-head-title" class="form-control section-title" value="{{$content->where('placement', 's1h')->first()->content}}"
+                  data-type="text" data-page="howitworks" data-placement="s1h">
               </div>
               <div class="form-group">
-                Text: <textarea name="landing-page-text" id="landing-page-text" class="form-control" cols="30" rows="5"
-                >In order to provide you with a tailor-made service that is both aethetic and profitable, we always start by carefully defining your wishes, conditions and goals. Bellow is our 4-step process.</textarea>
+                Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
+                  data-type="text" data-page="howitworks" data-placement="s1p"
+                >{{$content->where('placement', 's1p')->first()->content}}</textarea>
               </div>
             </div>
           </div>
@@ -30,21 +34,24 @@
           <div class="card-body">
             <div class="mt-4">
               <div class="form-group">
-                Title: <input type="text" name="landing-head-title" class="form-control step-title" value="Determine your needs">
+                Title: <input type="text" name="howitworks-head-title" class="form-control step-title" value="{{$content->where('placement', 's2h')->first()->content}}"
+                  data-type="text" data-page="howitworks" data-placement="s2h">
               </div>
               <div class="form-group">
-                Text: <textarea name="landing-page-text" id="landing-page-text" class="form-control" cols="30" rows="5"
-                >Determine how many raster graphics you would like to vectorize and how fast you would like them back. Leave the rest to us.</textarea>
+                Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
+                  data-type="text" data-page="howitworks" data-placement="s2p"
+                >{{$content->where('placement', 's2p')->first()->content}}</textarea>
               </div>
 
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
-                    <img src="{{asset('img/howitworks/section1/group-5.svg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('img/howitworks/' . $content->where('placement', 's2i')->first()->content)}}" alt="" class="img-fluid" id="s2i">
                   </div>
                   <div class="col-md-5 col-sm-12 form-group nlp">
                     <label class="btn btn-lg btn-outline-dark input-btn">
-                      <input type="file" class="upload-input" name="upfile">
+                      <input type="file" class="upload-input" name="upfile"
+                        data-type="img" data-page="howitworks" data-placement="s2i">
                       <i class="fas fa-cloud-upload-alt"></i> Change image
                     </label>
                   </div>
@@ -63,21 +70,24 @@
           <div class="card-body">
             <div class="mt-4">
               <div class="form-group">
-                Title: <input type="text" name="landing-head-title" class="form-control step-title" value="Select a plan that suits your goals ">
+                Title: <input type="text" name="howitworks-head-title" class="form-control step-title" value="{{$content->where('placement', 's3h')->first()->content}} "
+                  data-type="text" data-page="howitworks" data-placement="s3h">
               </div>
               <div class="form-group">
-                Text: <textarea name="landing-page-text" id="landing-page-text" class="form-control" cols="30" rows="5"
-                >We offer three monthly plans that allow for 15 vector artworks over a period of one month. Where they differ is in how fast you would like the vector artworks to be available.</textarea>
+                Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
+                  data-type="text" data-page="howitworks" data-placement="s3p"
+                >{{$content->where('placement', 's3p')->first()->content}}</textarea>
               </div>
 
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
-                    <img src="{{asset('img/howitworks/section1/group-6.svg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('img/howitworks/' . $content->where('placement', 's3i')->first()->content)}}" alt="" class="img-fluid" id="s3i">
                   </div>
                   <div class="col-md-5 col-sm-12 form-group nlp">
                     <label class="btn btn-lg btn-outline-dark input-btn">
-                      <input type="file" class="upload-input" name="upfile">
+                      <input type="file" class="upload-input" name="upfile"
+                        data-type="img" data-page="howitworks" data-placement="s3i">
                       <i class="fas fa-cloud-upload-alt"></i> Change image
                     </label>
                   </div>
@@ -96,21 +106,24 @@
           <div class="card-body">
             <div class="mt-4">
               <div class="form-group">
-                Title: <input type="text" name="landing-head-title" class="form-control step-title" value="Prepare your  raster graphics ">
+                Title: <input type="text" name="howitworks-head-title" class="form-control step-title" value="{{$content->where('placement', 's4h')->first()->content}}"
+                  data-type="text" data-page="howitworks" data-placement="s4h">
               </div>
               <div class="form-group">
-                Text: <textarea name="landing-page-text" id="landing-page-text" class="form-control" cols="30" rows="5"
-                >Your final vector artworks will be as good as the raster graphics you provide us with. We recommend you spend a few minutes to select the best quality you have.</textarea>
+                Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
+                  data-type="text" data-page="howitworks" data-placement="s4p"
+                >{{$content->where('placement', 's4p')->first()->content}}</textarea>
               </div>
 
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
-                    <img src="{{asset('img/howitworks/section1/group-4.svg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('img/howitworks/' . $content->where('placement', 's4i')->first()->content)}}" alt="" class="img-fluid" id="s4i">
                   </div>
                   <div class="col-md-5 col-sm-12 form-group nlp">
                     <label class="btn btn-lg btn-outline-dark input-btn">
-                      <input type="file" class="upload-input" name="upfile">
+                      <input type="file" class="upload-input" name="upfile"
+                        data-type="text" data-page="howitworks" data-placement="s4i">
                       <i class="fas fa-cloud-upload-alt"></i> Change image
                     </label>
                   </div>
@@ -129,21 +142,24 @@
           <div class="card-body">
             <div class="mt-4">
               <div class="form-group">
-                Title: <input type="text" name="landing-head-title" class="form-control step-title" value="Share your raster graphics with us ">
+                Title: <input type="text" name="howitworks-head-title" class="form-control step-title" value="{{$content->where('placement', 's5h')->first()->content}} "
+                  data-type="text" data-page="howitworks" data-placement="s5h">
               </div>
               <div class="form-group">
-                Text: <textarea name="landing-page-text" id="landing-page-text" class="form-control" cols="30" rows="5"
-                >The only thing left is to tell us of any specific needs & share your graphics with us. We’ll collaborate over Dropbox, where you’ll have full access to your files.</textarea>
+                Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
+                  data-type="text" data-page="howitworks" data-placement="s5p"
+                >{{$content->where('placement', 's5p')->first()->content}}</textarea>
               </div>
 
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
-                    <img src="{{asset('img/howitworks/section1/group-2.svg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('img/howitworks/' . $content->where('placement', 's5i')->first()->content)}}" alt="" class="img-fluid" id="s5i">
                   </div>
                   <div class="col-md-5 col-sm-12 form-group nlp">
                     <label class="btn btn-lg btn-outline-dark input-btn">
-                      <input type="file" class="upload-input" name="upfile">
+                      <input type="file" class="upload-input" name="upfile"
+                        data-type="img" data-page="howitworks" data-placement="s5i">
                       <i class="fas fa-cloud-upload-alt"></i> Change image
                     </label>
                   </div>
@@ -154,6 +170,9 @@
         </div>
       </div>
     </div>
+
+    <hr>
+    <i class="far fa-share-square float-right mr-5 send" data-type="howitworks"> Save</i>
 
   </div>
 

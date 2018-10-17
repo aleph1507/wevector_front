@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Content;
 
 class PagesController extends Controller
 {
     public function landing_page() {
-      return view('admin.landing');
+      $content = Content::landing()->get();
+      return view('admin.landing')->with(compact('content'));
     }
 
     public function howitworks() {
-      return view('admin.howitworks');
+      $content = Content::howitworks()->get();
+      return view('admin.howitworks')->with(compact('content'));
     }
 
     public function packages() {

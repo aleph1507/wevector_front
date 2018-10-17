@@ -15,7 +15,7 @@
       <div class="s1">
         <div class="row flex-row s1row">
           <div class="col-md-4 text-center half-column">
-            <img src="{{asset('img/howitworks/section1/group-5.svg')}}" alt="" class="img-fluid">
+            <img src="{{asset('img/howitworks/group-5.svg')}}" alt="" class="img-fluid">
             <div class="text text-left pulled-header">
               <span class="step">step one</span>
               <h2>Determine your needs</h2>
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="col-md-4 offset-md-3 text-center half-column">
-            <img src="{{asset('img/howitworks/section1/group-6.svg')}}" alt="" class="img-fluid">
+            <img src="{{asset('img/howitworks/group-6.svg')}}" alt="" class="img-fluid">
             <div class="text text-left">
               <span class="step">step two</span>
               <h2>Select a plan that suits your goals </h2>
@@ -37,7 +37,7 @@
       <div class="s1 mt-sec">
         <div class="row flex-row s1row">
           <div class="col-md-4 text-center half-column">
-            <img src="{{asset('img/howitworks/section1/group-4.svg')}}" alt="" class="img-fluid">
+            <img src="{{asset('img/howitworks/group-4.svg')}}" alt="" class="img-fluid">
             <div class="text text-left">
               <span class="step">step three</span>
               <h2>Prepare your  raster graphics </h2>
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="col-md-4 offset-md-3 text-center half-column">
-            <img src="{{asset('img/howitworks/section1/group-2.svg')}}" alt="" class="img-fluid">
+            <img src="{{asset('img/howitworks/group-2.svg')}}" alt="" class="img-fluid">
             <div class="text text-left">
               <span class="step">step four</span>
               <h2>Share your raster graphics with us</h2>

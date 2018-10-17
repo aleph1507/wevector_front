@@ -14,7 +14,7 @@
     <div class="row section grey-white-section">
       <!-- <div class="row"> -->
         <div class="col-lg-7 col-12 order-lg-1 mt-5 mt-lg-0 order-2">
-          <img src="{{asset('img/section2/Motor.png')}}" class="img-fluid" alt="Motor" id="motor-img">
+          <img src="{{asset('img/landing/Motor.png')}}" class="img-fluid" alt="Motor" id="motor-img">
         </div>
 
         <div class="col-lg-5 col-11 offset-lg-0 offset-1 order-lg-2 order-1 mt-5 mb-5 mt-lg-0 mb-lg-0 vcenter-flex">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-lg-6 col-12 offset-lg-0 mt-5 mt-lg-0">
-          <img src="{{asset('img/section3/simple-iphone-x-mockup-for-dribbble.png')}}" class="img-fluid" alt="iphone">
+          <img src="{{asset('img/landing/simple-iphone-x-mockup-for-dribbble.png')}}" class="img-fluid" alt="iphone">
         </div>
       <!-- </div> -->
     </div>
@@ -45,7 +45,7 @@
     <div class="row section pink-black-section">
       <!-- <div class="row"> -->
         <div class="col-10 offset-2 col-lg-3 offset-lg-2 order-2 order-lg-1 mt-lg-0 mt-5">
-          <img src="{{asset('img/section4/hand-pattern-01.png')}}" class="img-fluid" alt="finger">
+          <img src="{{asset('img/landing/hand-pattern-01.png')}}" class="img-fluid" alt="finger">
         </div>
         <div class="col-11 offset-1 col-lg-5 offset-lg-2 vcenter-flex order-1 order-lg-2 mt-lg-0 mt-5 v-top-padding-compensation">
           <h1>customize every detail</h1>
@@ -66,7 +66,7 @@
       </div>
 
       <div class="col-12 col-lg-4 offset-lg-1 mt-lg-0 mt-5 mb-lg-0 mb-5 far-right-flex">
-        <img src="{{asset('img/section5/layer-1.png')}}" class="img-fluid" alt="cotton" id="cotton">
+        <img src="{{asset('img/landing/layer-1.png')}}" class="img-fluid" alt="cotton" id="cotton">
       </div>
     </div>
 
