@@ -18,14 +18,17 @@ class PagesController extends Controller
     }
 
     public function packages() {
-      return view('admin.packages');
+      $content = Content::packages()->get();
+      return view('admin.packages')->with(compact('content'));
     }
 
     public function contact() {
-      return view('admin.contact');
+      $content = Content::contact()->get();
+      return view('admin.contact')->with(compact('content'));
     }
 
     public function footer() {
-      return view('admin.footer');
+      $content = Content::footer()->get();
+      return view('admin.footer')->with(compact('content'));
     }
 }

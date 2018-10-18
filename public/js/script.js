@@ -110,6 +110,4 @@ window.addEventListener('load', function (event) {
     }, 10);
   }
 
-  
-
 });

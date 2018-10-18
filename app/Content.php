@@ -32,10 +32,6 @@ class Content extends Model
       return self::where('type', 'footer');
     }
 
-    // public function element($query, $placement){
-    //   return $query->where('placement', $placement)->get();
-    // }
-
     public function getContent(){
       return self::content;
     }

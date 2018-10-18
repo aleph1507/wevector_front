@@ -11,23 +11,26 @@ class ContentController extends Controller
     public $menus = ['howitworks', 'plans', 'contact', 'customers'];
     public $placement = '';
 
-    public function store_menus($r){
+    public function store_menus($req){
+
       for($i = 0; $i<count($this->menus); $i++){
         for($j = $i+1; $j<count($this->menus); $j++){
-          if($r[$this->menus[$i]]['placement']  ==  $r[$this->menus[$j]]['placement']){
+          if(json_decode($req[$this->menus[$i]], true)['placement']  ==  json_decode($req[$this->menus[$j]], true)['placement']){
             abort(418, ucfirst($this->menus[$i]) . ' and ' . ucfirst($this->menus[$j]) .
-              ' are both placed at position ' . $r[$this->menus[$j]]['placement']);
+              ' are both placed at position ' . json_decode($req[$this->menus[$j]], true)['placement']);
           }
         }
       }
 
       foreach($this->menus as $menu){
-        Content::updateOrCreate(['page' => $menu], $r[$menu])->save();
+        Content::updateOrCreate(['page' => $menu], json_decode($req[$menu], true))->save();
       }
     }
 
     public function store_entry($r, $page){
       foreach($r as $entry){
+        if($page == 'plans')
+          $page = 'packages';
         if(empty(json_decode($entry, true)))
           continue;
         $arr = json_decode($entry, true);
@@ -44,7 +47,7 @@ class ContentController extends Controller
       $check_files = false;
       switch($request->call){
         case 'set_menus':
-          $this->store_menus(json_decode($request->all(), true));
+          $this->store_menus($request->all());
           break;
         case 'landing':
         case 'howitworks':
@@ -59,20 +62,12 @@ class ContentController extends Controller
       }
 
       if($check_files){
-        // $i_files = ['fi1', 's2i', 's3i', 's4i', 's5i'];
         $files_path = 'img/' . $request->call . '/';
         foreach($i_files as $i){
           if($request->hasFile($i)) {
             $entry = Content::where('page', $request->call)->where('placement', $i)->first();
-            // $entry = Content::where(['page', '=', $request->call], ['placement', '=', $i])->first();
             if($entry != null){
               $file = $request->file($i);
-              // echo '   i:  ';
-              // print_r($i);
-              // echo '  ENTRY: ';
-              // print_r($entry);
-              // echo '  FILE:  ';
-              // print_r($file);
               $extension = $file->getClientOriginalExtension();
               $filename = $i . time() . '.' . $extension;
               $file->move($files_path, $filename);

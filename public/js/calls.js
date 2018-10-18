@@ -18,7 +18,8 @@ jQuery('document').ready(function() {
       }
     }
     console.log('c_entry: ', c_entry);
-    return c_entry;
+    formData.append(menuItem, JSON.stringify(c_entry));
+    // return c_entry;
   }
 
   function setEntry(e){
@@ -28,8 +29,6 @@ jQuery('document').ready(function() {
         content = $('#' + $(e).data("placement")).attr('src').split('/');
         content = content[content.length-1];
       } else {
-        // console.log('(e).get(0).files[0]: ');
-        // console.log($(e).get(0).files[0]);
         content = $(e).get(0).files[0];
         formData.append($(e).data("placement"), content);
         console.log('content: ', content);
@@ -37,19 +36,7 @@ jQuery('document').ready(function() {
     } else {
       content = $(e).val();
     }
-    // if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'file' && $(e).val() == ""){
-    //   content = $('#' + $(e).data("placement")).attr('src').split('/');
-    //   content = content[content.length-1];
-    // } else {
-    //   content = $(e).val();
-    // }
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
-    // console.log('ent: ', ent);
-    // // return new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
-    // return JSON.stringify(ent);
-    // ent = new entry(JSON.stringify($(e).data("type")), JSON.stringify($(e).data("page")), JSON.stringify($(e).data("placement")), content);
-    // formData.append($(e).data("placement"), JSON.stringify($(e).data("type")) + JSON.stringify($(e).data("page")) + JSON.stringify($(e).data("placement")) + content);
-    // console.log('ent: ', ent);
     formData.append($(e).data("placement"), JSON.stringify(ent));
   }
 
@@ -80,16 +67,24 @@ jQuery('document').ready(function() {
     switch($(e.target).data("type")){
       case 'menu':
         call = 'set_menus';
-        entryHowitworks = setMenuEntry('howitworks', $('*[data-page="howitworks"]'));
-        entryPlans = setMenuEntry('plans', $('*[data-page="plans"]'));
-        entryContact = setMenuEntry('contact', $('*[data-page="contact"]'));
-        entryCustomers = setMenuEntry('customers', $('*[data-page="customers"]'));
-        payload = {
-          howitworks: entryHowitworks,
-          plans: entryPlans,
-          contact: entryContact,
-          customers: entryCustomers
-        };
+        formData.append('call', 'set_menus');
+        payload = [];
+        setMenuEntry('howitworks', $('*[data-page="howitworks"]'));
+        setMenuEntry('plans', $('*[data-page="plans"]'));
+        setMenuEntry('contact', $('*[data-page="contact"]'));
+        setMenuEntry('customers', $('*[data-page="customers"]'));
+        break;
+        // for()
+        // entryHowitworks = setMenuEntry('howitworks', $('*[data-page="howitworks"]'));
+        // entryPlans = setMenuEntry('plans', $('*[data-page="plans"]'));
+        // entryContact = setMenuEntry('contact', $('*[data-page="contact"]'));
+        // entryCustomers = setMenuEntry('customers', $('*[data-page="customers"]'));
+        // payload = {
+        //   howitworks: entryHowitworks,
+        //   plans: entryPlans,
+        //   contact: entryContact,
+        //   customers: entryCustomers
+        // };
       case 'landing':
         call = 'landing';
         formData.append('call', 'landing');
@@ -131,13 +126,8 @@ jQuery('document').ready(function() {
         formData.append('call', 'footer');
         payload = [];
         for(i = 0; i<$('*[data-page="footer"]').length; i++){
-          // payload.push(setEntry($('*[data-page="footer"]')[i]));
-          // formData.append(setEntry($('*[data-page="footer"]')[i]).placement, setEntry($('*[data-page="footer"]')[i]));
           setEntry($('*[data-page="footer"]')[i]);
         }
-        // console.log('pred stringify payload: ', payload);
-        // console.log('posle stringify payload: ', JSON.stringify(payload));
-        // formData.append('payload', JSON.stringify(payload));
         break;
       default:
         console.log('default');
@@ -151,10 +141,6 @@ jQuery('document').ready(function() {
     });
 
     if(call != null){
-      // console.log('pred ajax');
-      // for (var p of formData) {
-      //   console.log(p);
-      // }
       jQuery.ajax({
         url: "/admin/content",
         method: 'POST',
@@ -187,4 +173,22 @@ jQuery('document').ready(function() {
       });
     }
   });
+
+  function readURL(input){
+    if(input.files && input.files[0]){
+      imgEl = $('#' + $(input).data("placement"));
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        imgEl.attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".upload-input").on('change', function(e) {
+    console.log('vo event');
+    readURL(e.target);
+  });
+
 });
