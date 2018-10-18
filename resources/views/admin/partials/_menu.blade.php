@@ -7,12 +7,7 @@
       <option value="2" {{$content->where('page', 'howitworks')->first()->placement == 2 ? 'selected' : ''}}>2</option>
       <option value="3" {{$content->where('page', 'howitworks')->first()->placement == 3 ? 'selected' : ''}}>3</option>
       <option value="4" {{$content->where('page', 'howitworks')->first()->placement == 4 ? 'selected' : ''}}>4</option>
-    </select> {{--<i
-              data-type="menu" data-page="howitworks"
-              data-placement="1" data-content="How it works"
-              data-placement-control="#menu-placement1"
-              data-content-control="#howitworks"
-              class="far fa-share-square send float-right mr-5 send"> Save</i>--}}
+    </select>
   </div>
   <hr>
   <div class="mt-4">
@@ -23,7 +18,7 @@
       <option value="2" {{$content->where('page', 'plans')->first()->placement == 2 ? 'selected' : ''}}>2</option>
       <option value="3" {{$content->where('page', 'plans')->first()->placement == 3 ? 'selected' : ''}}>3</option>
       <option value="4" {{$content->where('page', 'plans')->first()->placement == 4 ? 'selected' : ''}}>4</option>
-    </select> {{--<i class="far fa-share-square send float-right mr-5 send"> Save</i>--}}
+    </select>
   </div>
   <hr>
   <div class="mt-4">
@@ -34,7 +29,7 @@
       <option value="2" {{$content->where('page', 'contact')->first()->placement == 2 ? 'selected' : ''}}>2</option>
       <option value="3" {{$content->where('page', 'contact')->first()->placement == 3 ? 'selected' : ''}}>3</option>
       <option value="4" {{$content->where('page', 'contact')->first()->placement == 4 ? 'selected' : ''}}>4</option>
-    </select> {{--<i class="far fa-share-square send float-right mr-5 send"> Save</i>--}}
+    </select>
   </div>
   <hr>
   <div class="mt-4">
@@ -45,9 +40,8 @@
       <option value="2" {{$content->where('page', 'customers')->first()->placement == 2 ? 'selected' : ''}}>2</option>
       <option value="3" {{$content->where('page', 'customers')->first()->placement == 3 ? 'selected' : ''}}>3</option>
       <option value="4" {{$content->where('page', 'customers')->first()->placement == 4 ? 'selected' : ''}}>4</option>
-    </select> {{--<i class="far fa-share-square send float-right mr-5 send"> Save</i> --}}
+    </select>
   </div>
   <hr>
   <i class="far fa-share-square float-right mr-5 send" data-type="menu"> Save</i>
-  {{-- <i class="far fa-share-square send float-right mr-3 send"> Publish</i> --}}
 </div>
