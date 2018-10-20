@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel sticky">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'WeVector') }}
@@ -42,12 +42,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item pr-3">
-                        <a href="{{route('preview')}}" class="nav-link btn btn-outline-success ml-5">Preview</a>
-                      </li>
-                      <li class="nav-item pr-3">
-                        <a href="#" id="btn_publish" class="nav-link btn btn-outline-info ml-5">Publish</a>
-                      </li>
+                      @if(Auth::check())
+                        <li class="nav-item pr-3">
+                          <a href="{{route('preview')}}" class="nav-link btn btn-outline-success ml-5">Preview</a>
+                        </li>
+                        <li class="nav-item pr-3">
+                          <a href="#" id="btn_publish" class="nav-link btn btn-outline-info ml-5">Publish</a>
+                        </li>
+                      @endif
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

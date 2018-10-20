@@ -7,6 +7,11 @@ use App\Content;
 
 class PagesController extends Controller
 {
+
+    public function __construct(){
+      $this->middleware('auth');
+    }
+    
     public function landing_page() {
       $content = Content::landing()->get();
       return view('admin.landing')->with(compact('content'));
