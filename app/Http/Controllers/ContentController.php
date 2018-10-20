@@ -62,101 +62,36 @@ class ContentController extends Controller
       }
 
       if($check_files){
+        $default_images = ['Motor.png','simple-iphone-x-mockup-for-dribbble.png','hand-pattern-01.png','layer-1.png',
+                            'group-2.svg','group-4.svg','group-5.svg','group-6.svg',
+                            'undraw-mail-cg-1-t.svg',
+                            'we_vector_logo.svg', 'logo-pinterest.png', 'logo-linkedin.png', 'logo-facebook.png'];
         $files_path = 'img/' . $request->call . '/';
         foreach($i_files as $i){
           if($request->hasFile($i)) {
             $entry = Content::where('page', $request->call)->where('placement', $i)->first();
+            if($entry == null){
+              $entry = new Content;
+              $entry->page = $request->call;
+              $entry->type = "img";
+              $entry->placement = $i;
+            }
             if($entry != null){
               $file = $request->file($i);
               $extension = $file->getClientOriginalExtension();
               $filename = $i . time() . '.' . $extension;
               $file->move($files_path, $filename);
-              File::delete($files_path . $entry->content);
+              if(File::exists($files_path . $entry->content) && !in_array($entry->content, $default_images))
+                File::delete($files_path . $entry->content);
               $entry->content = $filename;
               $entry->save();
               $entry = null;
-            } else {
-              abort(418, 'No such entry');
             }
+            // } else {
+            //   abort(418, 'No such entry');
+            // }
           }
         }
       }
-
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\content  $content
-     * @return \Illuminate\Http\Response
-     */
-    public function show(content $content)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\content  $content
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(content $content)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\content  $content
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, content $content)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\content  $content
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(content $content)
-    {
-        //
     }
 }

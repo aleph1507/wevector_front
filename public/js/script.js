@@ -5,8 +5,7 @@ function hasClass(element, className){
 function mobile_menu() {
   var x = document.getElementById("navbar");
   hasClass(x, 'responsive') ? x.classList.remove('responsive') : x.classList.add('responsive');
-
-}
+};
 
 window.addEventListener('load', function (event) {
   window.onscroll = function() {toggleMenu()};

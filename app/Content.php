@@ -28,7 +28,7 @@ class Content extends Model
       return self::where('type', 'link');
     }
 
-    public function footers() {
+    public static function footers() {
       return self::where('type', 'footer');
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.preview.layouts.master')
 @section('content')
   {{-- <div class="container-fluid footer-bg"> --}}
     <div class="row">

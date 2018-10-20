@@ -12,19 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $content = App\ContentLive::landing()->get();
+    return view('welcome')->with(compact('content'));
 });
 
 Route::get('/howitworks', function() {
-  return view('howitworks');
+  $content = App\ContentLive::howitworks()->get();
+  return view('howitworks')->with(compact('content'));
 })->name('howitworks');
 
 Route::get('/plans', function() {
-  return view('plans');
+  $content = App\ContentLive::packages()->get();
+  return view('plans')->with(compact('content'));
 })->name('plans');
 
 Route::get('/contact', function() {
-  return view('contact');
+  $content = App\ContentLive::contact()->get();
+  return view('contact')->with(compact('content'));
 })->name('contact');
 
 Auth::routes();
@@ -42,3 +46,7 @@ Route::get('/admin/contact', 'PagesController@contact')->name('admin_contact');
 Route::get('/admin/footer', 'PagesController@footer')->name('admin_footer');
 
 Route::post('/admin/content', 'ContentController@content')->name('content');
+
+Route::post('/admin/publish', 'PagesController@publish')->name('publish');
+
+Route::get('/preview/{page?}', 'PagesController@preview')->name('preview');

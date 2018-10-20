@@ -74,17 +74,6 @@ jQuery('document').ready(function() {
         setMenuEntry('contact', $('*[data-page="contact"]'));
         setMenuEntry('customers', $('*[data-page="customers"]'));
         break;
-        // for()
-        // entryHowitworks = setMenuEntry('howitworks', $('*[data-page="howitworks"]'));
-        // entryPlans = setMenuEntry('plans', $('*[data-page="plans"]'));
-        // entryContact = setMenuEntry('contact', $('*[data-page="contact"]'));
-        // entryCustomers = setMenuEntry('customers', $('*[data-page="customers"]'));
-        // payload = {
-        //   howitworks: entryHowitworks,
-        //   plans: entryPlans,
-        //   contact: entryContact,
-        //   customers: entryCustomers
-        // };
       case 'landing':
         call = 'landing';
         formData.append('call', 'landing');
@@ -154,7 +143,7 @@ jQuery('document').ready(function() {
           console.log('xhr: ', xhr);
           console.log('xhr.status', xhr.status);
           item = call == 'set_menus' ? 'menu items' : 'data';
-          successToast('Success!', 'Your ' + item + ' has been saved')
+          successToast('Success!', 'Your ' + item + ' has been saved');
         },
         error: function(xhr, status, error, message) {
           console.log('error');
@@ -172,6 +161,43 @@ jQuery('document').ready(function() {
         }
       });
     }
+  });
+
+  jQuery('#btn_publish').click(function(e) {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    jQuery.ajax({
+      url: "/admin/publish",
+      method: 'POST',
+      contentType: false,
+      processData: false,
+      cache: false,
+      data: '',
+      success: function(data, textStatus, xhr) {
+        console.log('data: ', data);
+        console.log('textStatus: ', textStatus);
+        console.log('xhr: ', xhr);
+        console.log('xhr.status', xhr.status);
+        successToast('Success!', 'Your content has been published!');
+      },
+      error: function(xhr, status, error, message) {
+        console.log('error');
+        console.log('xhr: ', xhr);
+        // console.log('message: ', xhr.responseJSON.message);
+        console.log('status: ', status);
+        console.log('error: ', error);
+        console.log('xhr.status: ', xhr.status);
+        if(xhr.status == 418)
+          failToast('Error!', xhr.responseJSON.message);
+        else {
+          failToast('Error!', 'There\'s been a problem publishing your content');
+        }
+      }
+    });
   });
 
   function readURL(input){

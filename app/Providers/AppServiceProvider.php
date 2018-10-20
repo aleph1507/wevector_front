@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Content;
+use App\ContentLive;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,29 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('admin.preview.partials._footer', function($view) {
+          $view->with('footer', Content::footer()->get());
+        });
+
+        view()->composer('admin.preview.partials._navbar', function($view){
+          $m1 = Content::menu()->where('placement', '1')->first();
+          $m2 = Content::menu()->where('placement', '2')->first();
+          $m3 = Content::menu()->where('placement', '3')->first();
+          $m4 = Content::menu()->where('placement', '4')->first();
+          $view->with(compact('m1', 'm2', 'm3', 'm4'));
+        });
+
+        view()->composer('partials._navbar', function($view){
+          $m1 = ContentLive::menu()->where('placement', '1')->first();
+          $m2 = ContentLive::menu()->where('placement', '2')->first();
+          $m3 = ContentLive::menu()->where('placement', '3')->first();
+          $m4 = ContentLive::menu()->where('placement', '4')->first();
+          $view->with(compact('m1', 'm2', 'm3', 'm4'));
+        });
+
+        view()->composer('partials._footer', function($view) {
+          $view->with('footer', ContentLive::footer()->get());
+        });
     }
 
     /**
