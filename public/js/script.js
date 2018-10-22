@@ -56,19 +56,66 @@ window.addEventListener('load', function (event) {
     });
   }
 
-  if(sendMsgBtn != null){
-    sendMsgBtn.addEventListener('click', function() {
-      console.log('clicked send message');
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          // submitMsg.innerHTML = this.responseText;
-          console.log('this.responseText: ', this.responseText);
-        }
-      }
-      xmlhttp.open("GET", "ajax_mail_handler.php", true);
-      xmlhttp.send();
+  function getFormData(form){
+    var unindexed_array = $(form).serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
     });
+
+    return indexed_array;
+  }
+
+  if(sendMsgBtn != null){
+    // sendMsgBtn.addEventListener('click', function() {
+    //   console.log('clicked send message');
+    //   var xmlhttp = new XMLHttpRequest();
+    //   xmlhttp.onreadystatechange = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //       // submitMsg.innerHTML = this.responseText;
+    //       console.log('this.responseText: ', this.responseText);
+    //     }
+    //   }
+    //   xmlhttp.open("GET", "ajax_mail_handler.php", true);
+    //   xmlhttp.send();
+    // });
+    console.log('sendMsgBtn: ', sendMsgBtn)
+    sendMsgBtn.addEventListener('click', function(e) {
+      // console.log('cForm.serializeArray: ', jQuery(cForm).serializeArray());
+      console.log('getFormData(cForm): ', getFormData(cForm));
+    });
+
+    // jQuery.ajax({
+    //   url: "/contact/send",
+    //   method: 'POST',
+    //   contentType: false,
+    //   processData: false,
+    //   cache: false,
+    //   data: formData,
+    //   success: function(data, textStatus, xhr) {
+    //     console.log('data: ', data);
+    //     console.log('textStatus: ', textStatus);
+    //     console.log('xhr: ', xhr);
+    //     console.log('xhr.status', xhr.status);
+    //     item = call == 'set_menus' ? 'menu items' : 'data';
+    //     successToast('Success!', 'Your ' + item + ' has been saved');
+    //   },
+    //   error: function(xhr, status, error, message) {
+    //     console.log('error');
+    //     console.log('xhr: ', xhr);
+    //     console.log('message: ', xhr.responseJSON.message);
+    //     console.log('status: ', status);
+    //     console.log('error: ', error);
+    //     console.log('xhr.status: ', xhr.status);
+    //     if(xhr.status == 418)
+    //       failToast('Error!', xhr.responseJSON.message);
+    //     else {
+    //       item = call == 'set_menus' ? 'menu items' : 'data';
+    //       failToast('Error!', 'There\'s been a problem saving your ' + item);
+    //     }
+    //   }
+    // });
   }
 
   function smoothScroll(target, duration){

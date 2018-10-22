@@ -1,0 +1,9 @@
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.thinkerlab.io
+MAIL_PORT=2525
+MAIL_USERNAME=info@thinkerlab.io
+MAIL_PASSWORD=jrjecbifsfnnunmv
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=info@thinkerlab.io
+MAIL_FROM_NAME=WeVector

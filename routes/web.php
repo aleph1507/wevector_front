@@ -50,3 +50,5 @@ Route::post('/admin/content', 'ContentController@content')->name('content');
 Route::post('/admin/publish', 'PagesController@publish')->name('publish');
 
 Route::get('/preview/{page?}', 'PagesController@preview')->name('preview');
+
+Route::post('/contact/send', 'ContactController@send')->name('send_contact');
