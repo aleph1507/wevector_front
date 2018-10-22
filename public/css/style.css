@@ -204,6 +204,18 @@ p {
   /* width: 100%; */
 }
 
+.section-btn {
+  color: #fff !important;
+  background: #f0386b;
+  font-family: latoBold;
+  border-radius: 3em;
+  text-transform: uppercase;
+  border: 0;
+  padding: 5% 25%;
+  margin-top: 5%;
+  width: 100% !important;
+}
+
 .vcenter-flex {
   display: flex;
   flex-direction: column;
@@ -401,6 +413,10 @@ p {
 
 .footer-p span {
   display:block;
+}
+
+.footer-logo {
+  max-width: 30%;
 }
 
 .social-div {

@@ -1,9 +1,11 @@
 jQuery('document').ready(function() {
-  function entry(type = "", page = "", placement = "", content = "") {
+  function entry(type = "", page = "", placement = "", content = "", background_image = null, background_color=null) {
     this.placement = placement;
     this.type = type;
     this.page = page;
     this.content = content;
+    this.background_image =  background_image;
+    this.background_color = background_color;
   };
 
   var formData = new FormData();
@@ -23,7 +25,9 @@ jQuery('document').ready(function() {
   }
 
   function setEntry(e){
+    ent = new entry();
     content = '';
+    bcolor = null;
     if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'file'){
       if($(e).val() == ""){
         content = $('#' + $(e).data("placement")).attr('src').split('/');
@@ -34,7 +38,10 @@ jQuery('document').ready(function() {
         console.log('content: ', content);
       }
     } else {
-      content = $(e).val();
+      if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'checkbox')
+        content = $(e).is(':checked');
+      else
+        content = $(e).val();
     }
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
     formData.append($(e).data("placement"), JSON.stringify(ent));

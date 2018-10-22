@@ -46,6 +46,30 @@
                 >{{$content->where('placement', 's2p')->first() != null ? $content->where('placement', 's2p')->first()->content : ''}}</textarea>
               </div>
 
+              <div class="form-group">
+                Button text: <input type="text"
+                  value="{{$content->where('placement', 's2b')->first() != null ? $content->where('placement', 's2b')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="text" data-page="landing" data-placement="s2b">
+              </div>
+
+              <div class="form-group">
+                Button url: <input type="text"
+                  value="{{$content->where('placement', 's2burl')->first() != null ? $content->where('placement', 's2burl')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="link" data-page="landing" data-placement="s2burl">
+              </div>
+
+              <div class="form-group mb-5">
+                <input type="checkbox" name="shows2b"
+                  data-type="toggleBtn" data-page="landing"
+                  data-placement="shows2b"
+                  value="shows2b" id="shows2b"
+                  {{$content->where('placement', 'shows2b')->first() != null ?
+                    $content->where('placement', 'shows2b')->first()->content == '1' ? 'checked' : '' : ''}}
+                  > Show button in this section
+              </div>
+
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
@@ -94,6 +118,30 @@
                   class="form-control" cols="30" rows="5"
                   data-type="text" data-page="landing" data-placement="s3p"
                 >{{$content->where('placement', 's3p')->first() != null ? $content->where('placement', 's3p')->first()->content : ''}}</textarea>
+              </div>
+
+              <div class="form-group">
+                Button text: <input type="text"
+                  value="{{$content->where('placement', 's3b')->first() != null ? $content->where('placement', 's3b')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="text" data-page="landing" data-placement="s3b">
+              </div>
+
+              <div class="form-group">
+                Button url: <input type="text"
+                  value="{{$content->where('placement', 's3burl')->first() != null ? $content->where('placement', 's3burl')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="link" data-page="landing" data-placement="s3burl">
+              </div>
+
+              <div class="form-group mb-5">
+                <input type="checkbox" name="shows3b"
+                  data-type="toggleBtn" data-page="landing"
+                  data-placement="shows3b"
+                  value="shows3b" id="shows3b"
+                  {{$content->where('placement', 'shows3b')->first() != null ?
+                    $content->where('placement', 'shows3b')->first()->content == '1' ? 'checked' : '' : ''}}
+                  > Show button in this section
               </div>
 
               <div class="upload-btns">
@@ -146,6 +194,30 @@
                 >{{$content->where('placement', 's4p')->first() != null ? $content->where('placement', 's4p')->first()->content : ''}}</textarea>
               </div>
 
+              <div class="form-group">
+                Button text: <input type="text"
+                  value="{{$content->where('placement', 's4b')->first() != null ? $content->where('placement', 's4b')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="text" data-page="landing" data-placement="s4b">
+              </div>
+
+              <div class="form-group">
+                Button url: <input type="text"
+                  value="{{$content->where('placement', 's4burl')->first() != null ? $content->where('placement', 's4burl')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="link" data-page="landing" data-placement="s4burl">
+              </div>
+
+              <div class="form-group mb-5">
+                <input type="checkbox" name="shows4b"
+                  data-type="toggleBtn" data-page="landing"
+                  data-placement="shows4b"
+                  value="shows4b" id="shows4b"
+                  {{$content->where('placement', 'shows4b')->first() != null ?
+                    $content->where('placement', 'shows4b')->first()->content == '1' ? 'checked' : '' : ''}}
+                  > Show button in this section
+              </div>
+
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
@@ -193,6 +265,29 @@
                   class="form-control" cols="30" rows="5"
                   data-type="text" data-page="landing" data-placement="s5p"
                 >{{$content->where('placement', 's5p')->first() != null ? $content->where('placement', 's5p')->first()->content : ''}}</textarea>
+              </div>
+
+              <div class="form-group">
+                Button text: <input type="text"
+                  value="{{$content->where('placement', 's5b')->first() != null ? $content->where('placement', 's5b')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="text" data-page="landing" data-placement="s5b">
+              </div>
+
+              <div class="form-group">
+                Button url: <input type="text"
+                  value="{{$content->where('placement', 's5burl')->first() != null ? $content->where('placement', 's5burl')->first()->content : ''}}"
+                  class="form-control"
+                  data-type="link" data-page="landing" data-placement="s5burl">
+              </div>
+
+              <div class="form-group mb-5">
+                <input type="checkbox" name="shows5b" value="shows5b"
+                  data-placement="shows5b"
+                  data-type="toggleBtn" data-page="landing" id="shows5b"
+                  {{$content->where('placement', 'shows5b')->first() != null ?
+                    $content->where('placement', 'shows5b')->first()->content == '1' ? 'checked' : '' : ''}}
+                  > Show button in this section
               </div>
 
               <div class="upload-btns">

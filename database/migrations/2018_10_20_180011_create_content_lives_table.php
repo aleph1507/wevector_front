@@ -15,7 +15,7 @@ class CreateContentLivesTable extends Migration
     {
         Schema::create('content_lives', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('type', ['text', 'img', 'link', 'menu', 'footer']);
+            $table->enum('type', ['text', 'img', 'link', 'menu', 'footer', 'toggleBtn']);
             $table->string('page');
             $table->string('placement');
             $table->text('content');

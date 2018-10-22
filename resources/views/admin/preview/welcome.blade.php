@@ -30,7 +30,22 @@
           <p class="short">
             {{$content->where('placement', 's2p')->first() != null ? $content->where('placement', 's2p')->first()->content : ''}}
           </p>
+
+          @if($content->where('placement', 'shows2b')->first() != null && $content->where('placement', 'shows2b')->first()->content == '1')
+          <div class="text-left mt-5">
+            <div class="col-xs-10 col-md-5">
+              <a name="s1b" id="c-form-submit"
+                class="section-btn"
+                href="{{$content->where('placement', 's2burl')->first() != null ? $content->where('placement', 's2burl')->first()->content : '#'}}">
+                  {{$content->where('placement', 's2b')->first() != null ? $content->where('placement', 's2b')->first()->content : ''}}
+                </a>
+            </div>
           </div>
+          @endif
+
+        </div>
+
+
       <!-- </div> -->
     </div>
 
@@ -42,6 +57,19 @@
           <p class="short">
             {{$content->where('placement', 's3p')->first() != null ? $content->where('placement', 's3p')->first()->content : ''}}
           </p>
+
+          @if($content->where('placement', 'shows3b')->first() != null && $content->where('placement', 'shows3b')->first()->content == '1')
+          <div class="text-left mt-5">
+            <div class="col-xs-10 col-md-5">
+              <a name="s1b" id="c-form-submit"
+                class="section-btn"
+                href="{{$content->where('placement', 's3burl')->first() != null ? $content->where('placement', 's3burl')->first()->content : '#'}}">
+                  {{$content->where('placement', 's3b')->first() != null ? $content->where('placement', 's3b')->first()->content : ''}}
+                </a>
+            </div>
+          </div>
+          @endif
+
         </div>
 
         <div class="col-lg-6 col-12 offset-lg-0 mt-5 mt-lg-0">
@@ -79,7 +107,20 @@
           <p class="short">
             {{$content->where('placement', 's4p')->first() != null ? $content->where('placement', 's4p')->first()->content : ''}}
           </p>
+
+          @if($content->where('placement', 'shows4b')->first() != null && $content->where('placement', 'shows4b')->first()->content == '1')
+          <div class="text-left mt-4">
+            <div class="col-xs-10 col-md-5 mt-0">
+              <a name="s1b" id="c-form-submit"
+                class="section-btn mt-0"
+                href="{{$content->where('placement', 's4burl')->first() != null ? $content->where('placement', 's4burl')->first()->content : '#'}}">
+                  {{$content->where('placement', 's4b')->first() != null ? $content->where('placement', 's4b')->first()->content : ''}}
+                </a>
+            </div>
           </div>
+          @endif
+
+        </div>
       <!-- </div> -->
     </div>
 
@@ -90,6 +131,19 @@
         <p class="short">
           {{$content->where('placement', 's5p')->first() != null ? $content->where('placement', 's5p')->first()->content : ''}}
         </p>
+
+        @if($content->where('placement', 'shows5b')->first() != null && $content->where('placement', 'shows5b')->first()->content == '1')
+        <div class="text-left mt-4">
+          <div class="col-xs-10 col-md-5 mt-0">
+            <a name="s1b" id="c-form-submit"
+              class="section-btn mt-5"
+              href="{{$content->where('placement', 's5burl')->first() != null ? $content->where('placement', 's5burl')->first()->content : '#'}}">
+                {{$content->where('placement', 's5b')->first() != null ? $content->where('placement', 's5b')->first()->content : ''}}
+              </a>
+          </div>
+        </div>
+        @endif
+
       </div>
 
       <div class="col-12 col-lg-4 offset-lg-1 mt-lg-0 mt-5 mb-lg-0 mb-5 far-right-flex">

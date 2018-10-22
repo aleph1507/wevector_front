@@ -5,11 +5,11 @@
         @if($footer->where('placement', 'fi1')->first() != null)
           <img
             src="{{asset('img/footer/' . $footer->where('placement', 'fi1')->first()->content)}}"
-            class="img-fluid" alt="Logo" id="fi1">
+            class="footer-logo" alt="Logo" id="fi1">
         @else
           <img
             src="{{asset('img/footer/we_vector_logo.svg')}}"
-            class="img-fluid" alt="Logo" id="fi1">
+            class="footer-logo" alt="Logo" id="fi1">
         @endif
         {{-- <img src="{{asset('img/footer/we_vector_logo.svg')}}" alt="Logo" class="img-fluid" id="logo-img"> --}}
       </div>
