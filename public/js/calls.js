@@ -126,7 +126,7 @@ jQuery('document').ready(function() {
         }
         break;
       default:
-        console.log('default');
+        // console.log('default');
         break;
     }
 
@@ -145,20 +145,20 @@ jQuery('document').ready(function() {
         cache: false,
         data: formData,
         success: function(data, textStatus, xhr) {
-          console.log('data: ', data);
-          console.log('textStatus: ', textStatus);
-          console.log('xhr: ', xhr);
-          console.log('xhr.status', xhr.status);
-          item = call == 'set_menus' ? 'menu items' : 'data';
+          // console.log('data: ', data);
+          // console.log('textStatus: ', textStatus);
+          // console.log('xhr: ', xhr);
+          // console.log('xhr.status', xhr.status);
+          // item = call == 'set_menus' ? 'menu items' : 'data';
           successToast('Success!', 'Your ' + item + ' has been saved');
         },
         error: function(xhr, status, error, message) {
-          console.log('error');
-          console.log('xhr: ', xhr);
-          console.log('message: ', xhr.responseJSON.message);
-          console.log('status: ', status);
-          console.log('error: ', error);
-          console.log('xhr.status: ', xhr.status);
+          // console.log('error');
+          // console.log('xhr: ', xhr);
+          // console.log('message: ', xhr.responseJSON.message);
+          // console.log('status: ', status);
+          // console.log('error: ', error);
+          // console.log('xhr.status: ', xhr.status);
           if(xhr.status == 418)
             failToast('Error!', xhr.responseJSON.message);
           else {

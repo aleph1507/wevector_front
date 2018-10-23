@@ -81,9 +81,56 @@ window.addEventListener('load', function (event) {
     //   xmlhttp.send();
     // });
     console.log('sendMsgBtn: ', sendMsgBtn)
-    sendMsgBtn.addEventListener('click', function(e) {
-      // console.log('cForm.serializeArray: ', jQuery(cForm).serializeArray());
+    cForm.addEventListener('submit', function(e) {
+      e.preventDefault();
       console.log('getFormData(cForm): ', getFormData(cForm));
+      data = getFormData(cForm);
+      submittedMsg = document.getElementById('submitMsg');
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+      jQuery.ajax({
+        url: "/contactmail/send",
+        method: 'POST',
+        data: data,
+        success: function(data, textStatus, xhr) {
+         // console.log('data: ', data);
+         // console.log('textStatus: ', textStatus);
+         // console.log('xhr: ', xhr);
+         // console.log('xhr.status', xhr.status);
+         // $(submittedMsg).css({
+         //   'display' : 'block',
+         //   'padding' : '6vh 3vh',
+         //   'background-color' : 'lightgreen',
+         //   'border-color' : '2px solid green'
+         // });
+         if($(submittedMsg).hasClass('alert-danger'))
+          $(submittedMsg).removeClass('alert-danger');
+
+         $(submittedMsg).addClass('alert-success');
+         $(submittedMsg).css({'display' : 'inline-block'});
+         submittedMsg.textContent = 'Your message has been sent';
+       },
+       error: function(xhr, status, error, message) {
+         // console.log('error');
+         // console.log('xhr: ', xhr);
+         // console.log('message: ', xhr.responseJSON.message);
+         // console.log('status: ', status);
+         // console.log('error: ', error);
+         // console.log('xhr.status: ', xhr.status);
+
+         if($(submittedMsg).hasClass('alert-success'))
+          $(submittedMsg).removeClass('alert-success');
+
+         $(submittedMsg).addClass('alert-danger');
+         $(submittedMsg).css({'display' : 'inline-block'});
+         submittedMsg.textContent = 'There has been an error. Please try again later';
+       }
+      })
     });
 
     // jQuery.ajax({

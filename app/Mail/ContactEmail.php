@@ -30,8 +30,9 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->form($form->email)
+        return $this->from($this->form['address'])
+                    ->subject('New message from WeVector')
                     ->view('mails.contact')
-                    ->with($form);
+                    ->with($this->form);
     }
 }

@@ -8,13 +8,8 @@ use Mail;
 
 class ContactController extends Controller
 {
-    public function send() {
-      $objForm = new \stdClass();
-      $objForm->email = "e@mail.com";
-      $objForm->name = "client";
-      $objForm->sender = "sender";
-      $objForm->receiver = "receiver";
+    public function send(Request $request) {
 
-      Mail::to("info@thinkerlab.io")->send(new ContactEmail($objForm));
+      Mail::to("info@thinkerlab.io")->send(new ContactEmail($request->all()));
     }
 }
