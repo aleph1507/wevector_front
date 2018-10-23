@@ -188,10 +188,20 @@
           </div>
           <div class="row">
             <div class="col-12 mx-auto">
+              {{-- <div class="g-recaptcha"
+                 data-sitekey="6LcyZXYUAAAAABiKRyp9tLIVW4FcKkFiHhTKTBFp"
+                 data-callback="contactCaptcha"
+                 data-size="invisible">
+              </div> --}}
+              {!! app('captcha')->render(); !!}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mx-auto">
               <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>
             </div>
             <div id="submitMsg" class="col-xs-10 col-md-6 col-lg-4 alert mx-auto mt-5">
-
+              <i class="fa fa-spinner fa-spin" style="font-size:48px;color:red"></i>
             </div>
           </div>
         </form>

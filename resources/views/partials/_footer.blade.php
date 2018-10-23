@@ -1,4 +1,4 @@
-<div class="container-fluid footer-bg">
+<div class="container-fluid footer-bg footer p-0">
   <div class="container spaced-top-mod">
     <div class="row section footer" id="footer">
       <div class="col-12 col-md-6 col-lg-3 mx-auto mt-lg-0 mt-5 mb-lg-0 mb-5">

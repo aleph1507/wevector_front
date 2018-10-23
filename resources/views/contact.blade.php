@@ -17,15 +17,15 @@
   <div class="container">
     <div class="row spaced-top-mod">
       <div class="col-md-5 offset-md-1 inplace-container">
-        <form class="contact-page-form" id="contact-page-form" method="post">
+        <form class="contact-page-form" id="c-form" method="post">
           <div class="form-group name">
             <input type="text" name="name" placeholder="Your Name *" class="form-control" autocomplete="off" required>
           </div>
           <div class="form-group email">
-            <input type="email" name="email" placeholder="Email address *" class="form-control" autocomplete="off" required>
+            <input type="email" name="address" placeholder="Email address *" class="form-control" autocomplete="off" required>
           </div>
           <div class="form-group phone">
-            <input type="text" name="phone" placeholder="Phone" class="form-control" autocomplete="off">
+            <input type="phone" name="phone" placeholder="Phone" class="form-control" autocomplete="off">
           </div>
           <div class="form-group company">
             <input type="text" name="company" placeholder="Company *" class="form-control" autocomplete="off" required>
@@ -39,7 +39,7 @@
 
           <label for="note" class="blink notdec spaced-top-mod">Please tell us more about your enquiry *</label>
           <div class="form-group note">
-            <textarea name="note" id="note"
+            <textarea name="c-form-message" id="c-form-message"
             cols="30" rows="10" placeholder="Add note here..." class="form-control" required></textarea>
           </div>
 
@@ -59,8 +59,11 @@
               <a href="#" class="blink">Upload another file</a>
             </div>
           </div> --}}
+          <div class="col-12 mx-auto">
+            {!! app('captcha')->render(); !!}
+          </div>
 
-          <button type="button" class="pink-button-lg spaced-top" id="sendMessagePage">send message</button>
+          <button type="submit" class="pink-button-lg spaced-top" id="sendMessagePage">send message</button>
         </form>
         <img src="{{asset('img/contact/undraw-mail-cg-1-t.svg')}}" alt="Message" id="msgImg" class="transparent inplace">
       </div>
@@ -117,6 +120,9 @@
           </span>
         </p>
       </div>
+    </div>
+    <div id="submitMsg" class="col-xs-10 col-md-6 col-lg-4 alert mx-auto mt-5">
+      <i class="fa fa-spinner fa-spin" style="font-size:48px;color:black;"></i>
     </div>
   </div>
 @endsection

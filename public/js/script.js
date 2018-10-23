@@ -28,7 +28,7 @@ window.addEventListener('load', function (event) {
       navbar.classList.remove("sticky");
     }
 
-    if(cForm != null){
+    if(cForm != null && window.location.pathname == '/'){
       if(window.pageYOffset > (cForm.offsetTop - 500) && (window.pageYOffset < (cForm.offsetTop + 160) )) {
         navbar.classList.add("invisible");
       } else {
@@ -47,13 +47,73 @@ window.addEventListener('load', function (event) {
     });
   }
 
-  if(smp != null){
-    smp.addEventListener('click', function() {
-      if(cpf != null){
-        cpf.classList.add('transparent');
-        msgImg.classList.remove("transparent");
+  // if(sendMsgBtn != null){
+  //   sendMsgBtn.addEventListener('click', function() {
+  //     if(cForm != null){
+  //       cForm.classList.add('transparent');
+  //       msgImg.classList.remove("transparent");
+  //     }
+  //   });
+  // }
+
+  function contactCaptcha() {
+    // e.preventDefault();
+    console.log('getFormData(cForm): ', getFormData(cForm));
+    data = getFormData(cForm);
+    submittedMsg = document.getElementById('submitMsg');
+    $('#submitMsg i').css({'display': 'inline-block'});
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
+
+    jQuery.ajax({
+      url: "/contactmail/send",
+      method: 'POST',
+      data: JSON.stringify(data),
+      // data: {
+      //   data,
+      //   "g-recaptcha-response": $("#g-recaptcha-response").val()
+      // },
+      success: function(data, textStatus, xhr) {
+       // console.log('data: ', data);
+       // console.log('textStatus: ', textStatus);
+       // console.log('xhr: ', xhr);
+       // console.log('xhr.status', xhr.status);
+       // $(submittedMsg).css({
+       //   'display' : 'block',
+       //   'padding' : '6vh 3vh',
+       //   'background-color' : 'lightgreen',
+       //   'border-color' : '2px solid green'
+       // });
+       $('#submitMsg i').css({'display': 'none'});
+       if($(submittedMsg).hasClass('alert-danger'))
+        $(submittedMsg).removeClass('alert-danger');
+
+       $(submittedMsg).addClass('alert-success');
+       $(submittedMsg).css({'display' : 'inline-block'});
+
+       submittedMsg.textContent = 'Your message has been sent';
+     },
+     error: function(xhr, status, error, message) {
+       $('#submitMsg i').css({'display': 'none'});
+       // console.log('error');
+       // console.log('xhr: ', xhr);
+       // console.log('message: ', xhr.responseJSON.message);
+       // console.log('status: ', status);
+       // console.log('error: ', error);
+       // console.log('xhr.status: ', xhr.status);
+
+       if($(submittedMsg).hasClass('alert-success'))
+        $(submittedMsg).removeClass('alert-success');
+
+       $(submittedMsg).addClass('alert-danger');
+       $(submittedMsg).css({'display' : 'inline-block'});
+       submittedMsg.textContent = 'There has been an error. Please try again later';
+     }
+   });
   }
 
   function getFormData(form){
@@ -66,6 +126,76 @@ window.addEventListener('load', function (event) {
 
     return indexed_array;
   }
+
+  _submitEvent = function() {
+    console.log('submit button clicked.');
+
+    // e.preventDefault();
+    console.log('getFormData(cForm): ', getFormData(cForm));
+    data = getFormData(cForm);
+    submittedMsg = document.getElementById('submitMsg');
+    $('#submitMsg i').css({'display': 'inline-block'});
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    jQuery.ajax({
+      url: "/contactmail/send",
+      method: 'POST',
+      data: data,
+      // data: {
+      //   data,
+      //   "g-recaptcha-response": $("#g-recaptcha-response").val()
+      // },
+      success: function(data, textStatus, xhr) {
+       // console.log('data: ', data);
+       // console.log('textStatus: ', textStatus);
+       // console.log('xhr: ', xhr);
+       // console.log('xhr.status', xhr.status);
+       // $(submittedMsg).css({
+       //   'display' : 'block',
+       //   'padding' : '6vh 3vh',
+       //   'background-color' : 'lightgreen',
+       //   'border-color' : '2px solid green'
+       // });
+       if(window.location.pathname == '/contact'){
+         console.log('vo if, window.location.pathname: ', window.location.pathname);
+         if(msgImg != null){
+           cForm.classList.add('transparent');
+           msgImg.classList.remove("transparent");
+         }
+       }
+
+       $('#submitMsg i').css({'display': 'none'});
+       if($(submittedMsg).hasClass('alert-danger'))
+        $(submittedMsg).removeClass('alert-danger');
+
+       $(submittedMsg).addClass('alert-success');
+       $(submittedMsg).css({'display' : 'inline-block'});
+
+       submittedMsg.textContent = 'Your message has been sent';
+     },
+     error: function(xhr, status, error, message) {
+       $('#submitMsg i').css({'display': 'none'});
+       // console.log('error');
+       // console.log('xhr: ', xhr);
+       // console.log('message: ', xhr.responseJSON.message);
+       // console.log('status: ', status);
+       // console.log('error: ', error);
+       // console.log('xhr.status: ', xhr.status);
+
+       if($(submittedMsg).hasClass('alert-success'))
+        $(submittedMsg).removeClass('alert-success');
+
+       $(submittedMsg).addClass('alert-danger');
+       $(submittedMsg).css({'display' : 'inline-block'});
+       submittedMsg.textContent = 'There has been an error. Please try again later';
+     }
+   });
+}
 
   if(sendMsgBtn != null){
     // sendMsgBtn.addEventListener('click', function() {
@@ -82,55 +212,10 @@ window.addEventListener('load', function (event) {
     // });
     console.log('sendMsgBtn: ', sendMsgBtn)
     cForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      console.log('getFormData(cForm): ', getFormData(cForm));
-      data = getFormData(cForm);
-      submittedMsg = document.getElementById('submitMsg');
-
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
-
-      jQuery.ajax({
-        url: "/contactmail/send",
-        method: 'POST',
-        data: data,
-        success: function(data, textStatus, xhr) {
-         // console.log('data: ', data);
-         // console.log('textStatus: ', textStatus);
-         // console.log('xhr: ', xhr);
-         // console.log('xhr.status', xhr.status);
-         // $(submittedMsg).css({
-         //   'display' : 'block',
-         //   'padding' : '6vh 3vh',
-         //   'background-color' : 'lightgreen',
-         //   'border-color' : '2px solid green'
-         // });
-         if($(submittedMsg).hasClass('alert-danger'))
-          $(submittedMsg).removeClass('alert-danger');
-
-         $(submittedMsg).addClass('alert-success');
-         $(submittedMsg).css({'display' : 'inline-block'});
-         submittedMsg.textContent = 'Your message has been sent';
-       },
-       error: function(xhr, status, error, message) {
-         // console.log('error');
-         // console.log('xhr: ', xhr);
-         // console.log('message: ', xhr.responseJSON.message);
-         // console.log('status: ', status);
-         // console.log('error: ', error);
-         // console.log('xhr.status: ', xhr.status);
-
-         if($(submittedMsg).hasClass('alert-success'))
-          $(submittedMsg).removeClass('alert-success');
-
-         $(submittedMsg).addClass('alert-danger');
-         $(submittedMsg).css({'display' : 'inline-block'});
-         submittedMsg.textContent = 'There has been an error. Please try again later';
-       }
-      })
+      // grecaptcha.execute();
+      // e.preventDefault();
+      // grecaptcha.execute();
+      // contactCaptcha();
     });
 
     // jQuery.ajax({
