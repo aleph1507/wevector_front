@@ -1,5 +1,12 @@
 <div class="card-body">
   <div class="mt-4">
+
+    {{-- <div class="form-group mt-5 ml-0 mb-5">
+      Menu font color: <input type="color" name="menufontcolor"
+        value="{{$content->where('placement', 'menu')->first() != null ? $content->where('placement', 'menu')->first()->content : '#ffffff'}}"
+        data-type="menu" data-page="menu" data-placement="menufontcolor">
+    </div> --}}
+
     Menu item <input type="text" class="send-input" data-type="menu" data-page="howitworks"
       value="{{$content->where('page', 'howitworks')->first() != null ? $content->where('page', 'howitworks')->first()->content : ''}}" id="howitworks">
       linking to <a href="{{route('howitworks')}}">How it works</a>, at position

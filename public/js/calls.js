@@ -15,6 +15,8 @@ jQuery('document').ready(function() {
     for(i = 0; i<menuInputs.length; i++){
       if($(menuInputs[i]).prop("tagName").toLowerCase() == "input"){
         c_entry.content = $(menuInputs[i]).val();
+        // if($(menuInputs[i]).attr('type') == 'color')
+        //   c_entry.placement = 'menufontcolor';
       } else if($(menuInputs[i]).prop("tagName").toLowerCase() == "select"){
         c_entry.placement = $(menuInputs[i]).val();
       }
@@ -42,7 +44,7 @@ jQuery('document').ready(function() {
         content = $(e).is(':checked');
       else{
         content = $(e).val();
-        
+
       }
     }
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
@@ -82,6 +84,7 @@ jQuery('document').ready(function() {
         setMenuEntry('plans', $('*[data-page="plans"]'));
         setMenuEntry('contact', $('*[data-page="contact"]'));
         setMenuEntry('customers', $('*[data-page="customers"]'));
+        setMenuEntry('color', $('*[data-page="menu"]'));
         break;
       case 'landing':
         call = 'landing';

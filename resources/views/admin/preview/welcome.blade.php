@@ -19,7 +19,7 @@
         <p class="short">
           {{$content->where('placement', 's1p')->first() != null ? $content->where('placement', 's1p')->first()->content : ''}}
         </p>
-        </div>
+      </div>
     </div>
 
     <div class="row section grey-white-section"
