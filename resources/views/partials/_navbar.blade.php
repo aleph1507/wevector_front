@@ -21,7 +21,7 @@
   {{-- <a href="{{route('howitworks')}}" class="nav-link" style="{{Request::is('/') ? : 'color:black'}}">how it works</a>
   <a href="{{route('plans')}}" class="nav-link" style="{{Request::is('/') ? : 'color:black'}}">packages</a>
   <a href="{{route('contact')}}" class="nav-link" style="{{Request::is('/') ? : 'color:black'}}">contact</a> --}}
-  <a class="nav-button" id="contact-nav-link" style="{{Request::is('/') ? : 'color:black; border: 2px solid black;'}}">
+  <a class="nav-button" id="contact-nav-link" style="color:black; border: 2px solid black;">
     hire us
   </a>
   <a href="javascript:void(0);"

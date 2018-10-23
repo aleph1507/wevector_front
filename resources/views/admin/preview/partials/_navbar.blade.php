@@ -18,7 +18,7 @@
       {{$m3 != null ? $m3->content : ''}}
     </a>
   @endif
-  <a class="nav-button" id="contact-nav-link" style="{{Request::is('preview') ? : 'color:black; border: 2px solid black;'}}">
+  <a class="nav-button" id="contact-nav-link" style="color:black; border: 2px solid black;">
     hire us
   </a>
   <a href="javascript:void(0);"
