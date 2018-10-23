@@ -28,6 +28,7 @@ jQuery('document').ready(function() {
     ent = new entry();
     content = '';
     bcolor = null;
+    bimage = null;
     if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'file'){
       if($(e).val() == ""){
         content = $('#' + $(e).data("placement")).attr('src').split('/');
@@ -35,13 +36,14 @@ jQuery('document').ready(function() {
       } else {
         content = $(e).get(0).files[0];
         formData.append($(e).data("placement"), content);
-        console.log('content: ', content);
       }
     } else {
       if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'checkbox')
         content = $(e).is(':checked');
-      else
+      else{
         content = $(e).val();
+        
+      }
     }
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
     formData.append($(e).data("placement"), JSON.stringify(ent));
@@ -149,7 +151,7 @@ jQuery('document').ready(function() {
           // console.log('textStatus: ', textStatus);
           // console.log('xhr: ', xhr);
           // console.log('xhr.status', xhr.status);
-          // item = call == 'set_menus' ? 'menu items' : 'data';
+          item = call == 'set_menus' ? 'menu items' : 'data';
           successToast('Success!', 'Your ' + item + ' has been saved');
         },
         error: function(xhr, status, error, message) {

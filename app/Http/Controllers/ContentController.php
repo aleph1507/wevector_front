@@ -43,7 +43,7 @@ class ContentController extends Controller
     }
 
     public function content(Request $request) {
-      $i_files = ['fi1', 's2i', 's3i', 's4i', 's5i'];
+      $i_files = ['fi1', 's2i', 's3i', 's4i', 's5i', 's2ibg'];
       $check_files = false;
       switch($request->call){
         case 'set_menus':

@@ -2,7 +2,19 @@
 @section('content')
   {{-- <div class="container-fluid footer-bg"> --}}
     <div class="row">
-      <div class="section hero-section" id="hero-section">
+      @if($content->where('placement', 'shows2bgi')->first() != null
+        && $content->where('placement', 'shows2bgi')->first()->content == '1'
+        && $content->where('placement', 's2ibg')->first() != null)
+      <div class="section hero-section" id="hero-section"
+        style="background-color: {{$content->where('placement', 's1bgcolor')->first() != null ? $content->where('placement', 's1bgcolor')->first()->content : '#15053a'}};
+               background-image: url({{asset('img/landing/' . $content->where('placement', 's2ibg')->first()->content)}});
+               background-size: cover;
+               color: {{$content->where('placement', 's1fontcolor')->first() != null ? $content->where('placement', 's1fontcolor')->first()->content : '#ffffff'}};">
+      @else
+      <div class="section hero-section" id="hero-section"
+        style="background-color: {{$content->where('placement', 's1bgcolor')->first() != null ? $content->where('placement', 's1bgcolor')->first()->content : '#15053a'}};
+               color: {{$content->where('placement', 's1fontcolor')->first() != null ? $content->where('placement', 's1fontcolor')->first()->content : '#ffffff'}};">
+      @endif
         <h1>{{$content->where('placement', 's1h')->first() != null ? $content->where('placement', 's1h')->first()->content : ''}}</h1>
         <p class="short">
           {{$content->where('placement', 's1p')->first() != null ? $content->where('placement', 's1p')->first()->content : ''}}
@@ -10,7 +22,9 @@
         </div>
     </div>
 
-    <div class="row section grey-white-section">
+    <div class="row section grey-white-section"
+      style="background-color: {{$content->where('placement', 's2bgcolor')->first() != null ? $content->where('placement', 's2bgcolor')->first()->content : '#464646'}};
+             color: {{$content->where('placement', 's2fontcolor')->first() != null ? $content->where('placement', 's2fontcolor')->first()->content : '#ffffff'}};">
       <!-- <div class="row"> -->
         <div class="col-lg-7 col-12 order-lg-1 mt-5 mt-lg-0 order-2">
           @if($content->where('placement', 's2i')->first() != null)
@@ -49,7 +63,9 @@
       <!-- </div> -->
     </div>
 
-    <div class="row section light-blue-white-section">
+    <div class="row section light-blue-white-section"
+      style="background-color: {{$content->where('placement', 's3bgcolor')->first() != null ? $content->where('placement', 's3bgcolor')->first()->content : '#a9d7d5'}};
+             color: {{$content->where('placement', 's3fontcolor')->first() != null ? $content->where('placement', 's3fontcolor')->first()->content : '#ffffff'}};">
       <!-- <div class="row"> -->
         <div class="col-lg-5 offset-lg-1 col-11 offset-1 v-padded-top">
           <h1>{{$content->where('placement', 's3h')->first() != null ? $content->where('placement', 's3h')->first()->content : ''}}</h1>
@@ -87,7 +103,9 @@
       <!-- </div> -->
     </div>
 
-    <div class="row section pink-black-section">
+    <div class="row section pink-black-section"
+      style="background-color: {{$content->where('placement', 's4bgcolor')->first() != null ? $content->where('placement', 's4bgcolor')->first()->content : '#fddfdf'}};
+             color: {{$content->where('placement', 's4fontcolor')->first() != null ? $content->where('placement', 's4fontcolor')->first()->content : '#000000'}};">
       <!-- <div class="row"> -->
         <div class="col-10 offset-2 col-lg-3 offset-lg-2 order-2 order-lg-1 mt-lg-0 mt-5">
           @if($content->where('placement', 's4i')->first() != null)
@@ -124,7 +142,9 @@
       <!-- </div> -->
     </div>
 
-    <div class="row section white-black-section">
+    <div class="row section white-black-section"
+      style="background-color: {{$content->where('placement', 's5bgcolor')->first() != null ? $content->where('placement', 's5bgcolor')->first()->content : '#fff'}};
+             color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};">
       <div class="col-11 offset-1 col-lg-5 offset-lg-2 mt-lg-0 mt-5 vcenter-flex">
         <h1>{{$content->where('placement', 's5h')->first() != null ? $content->where('placement', 's5h')->first()->content : ''}}</h1>
 
@@ -156,11 +176,12 @@
             src="{{asset('img/landing/layer-1.png')}}"
             class="img-fluid" alt="cotton" id="s5i">
         @endif
-        {{-- <img src="{{asset('img/landing/layer-1.png')}}" class="img-fluid" alt="cotton" id="cotton"> --}}
       </div>
     </div>
 
-    <div class="row section form-section text-center">
+    <div class="row section form-section text-center"
+      style="background-color: {{$content->where('placement', 's6bgcolor')->first() != null ? $content->where('placement', 's6bgcolor')->first()->content : '#15053a'}};
+             color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}}">
       <div class="col-12 text-center">
         <h1 class="text-center mx-auto" id="form-title">
           {{$content->where('placement', 's6h')->first() != null ? $content->where('placement', 's6h')->first()->content : ''}}

@@ -21,6 +21,54 @@
                       data-type="text" data-page="landing" data-placement="s1p"
                 >{{$content->where('placement', 's1p')->first() != null ? $content->where('placement', 's1p')->first()->content : ''}}</textarea>
               </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s1color"
+                  value="{{$content->where('placement', 's1bgcolor')->first() != null ? $content->where('placement', 's1bgcolor')->first()->content : '#15053a'}}"
+                  data-type="text" data-page="landing" data-placement="s1bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s1fontcolor"
+                  value="{{$content->where('placement', 's1fontcolor')->first() != null ? $content->where('placement', 's1fontcolor')->first()->content : '#ffffff'}}"
+                  data-type="text" data-page="landing" data-placement="s1fontcolor">
+              </div>
+
+              <div class="form-group">
+                <div class="upload-btns">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      @if($content->where('placement', 's2ibg')->first() != null)
+                        <img
+                          src="{{asset('img/landing/' . $content->where('placement', 's2ibg')->first()->content)}}"
+                          class="img-fluid" alt="Group-210" id="s2ibg">
+                      @else
+                        <img
+                          src="{{asset('img/landing/Motor.png')}}"
+                          class="img-fluid" alt="Group-210" id="s2ibg">
+                      @endif
+                    </div>
+                    <div class="col-md-5 col-sm-12 form-group nlp">
+                      <label class="btn btn-lg btn-outline-dark input-btn">
+                        <input type="file" data-type="img" class="upload-input" name="upfile"
+                          data-page="landing" data-placement="s2ibg">
+                        <i class="fas fa-cloud-upload-alt"></i> Change background image
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-5">
+                <input type="checkbox" name="shows2bgi"
+                  data-type="toggleBtn" data-page="landing"
+                  data-placement="shows2bgi"
+                  value="shows2bgi" id="shows2bgi"
+                  {{$content->where('placement', 'shows2bgi')->first() != null ?
+                    $content->where('placement', 'shows2bgi')->first()->content == '1' ? 'checked' : '' : ''}}
+                  > Show the background image of this section
+              </div>
+
             </div>
           </div>
         </div>
@@ -68,6 +116,18 @@
                   {{$content->where('placement', 'shows2b')->first() != null ?
                     $content->where('placement', 'shows2b')->first()->content == '1' ? 'checked' : '' : ''}}
                   > Show button in this section
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s2color"
+                  value="{{$content->where('placement', 's2bgcolor')->first() != null ? $content->where('placement', 's2bgcolor')->first()->content : '#464646'}}"
+                  data-type="text" data-page="landing" data-placement="s2bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s2fontcolor"
+                  value="{{$content->where('placement', 's2fontcolor')->first() != null ? $content->where('placement', 's2fontcolor')->first()->content : '#ffffff'}}"
+                  data-type="text" data-page="landing" data-placement="s2fontcolor">
               </div>
 
               <div class="upload-btns">
@@ -144,6 +204,18 @@
                   > Show button in this section
               </div>
 
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s3color"
+                  value="{{$content->where('placement', 's3bgcolor')->first() != null ? $content->where('placement', 's3bgcolor')->first()->content : '#a9d7d5'}}"
+                  data-type="text" data-page="landing" data-placement="s3bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s3fontcolor"
+                  value="{{$content->where('placement', 's3fontcolor')->first() != null ? $content->where('placement', 's3fontcolor')->first()->content : '#ffffff'}}"
+                  data-type="text" data-page="landing" data-placement="s3fontcolor">
+              </div>
+
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
@@ -156,8 +228,6 @@
                         src="{{asset('img/landing/simple-iphone-x-mockup-for-dribbble.png')}}"
                         class="img-fluid" alt="iphone" id="s3i">
                     @endif
-                    {{-- <img src="{{asset('img/landing/' . $content->where('placement', 's3i')->first() != null ? $content->where('placement', 's3i')->first()->content : 'simple-iphone-x-mockup-for-dribbble.png')}}"
-                     class="img-fluid" id="s3i" alt="iphone"> --}}
                   </div>
                   <div class="col-md-5 col-sm-12 form-group nlp">
                     <label class="btn btn-lg btn-outline-dark input-btn">
@@ -216,6 +286,18 @@
                   {{$content->where('placement', 'shows4b')->first() != null ?
                     $content->where('placement', 'shows4b')->first()->content == '1' ? 'checked' : '' : ''}}
                   > Show button in this section
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s4color"
+                  value="{{$content->where('placement', 's4bgcolor')->first() != null ? $content->where('placement', 's4bgcolor')->first()->content : '#fddfdf'}}"
+                  data-type="text" data-page="landing" data-placement="s4bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s4fontcolor"
+                  value="{{$content->where('placement', 's4fontcolor')->first() != null ? $content->where('placement', 's4fontcolor')->first()->content : '#000000'}}"
+                  data-type="text" data-page="landing" data-placement="s4fontcolor">
               </div>
 
               <div class="upload-btns">
@@ -290,6 +372,18 @@
                   > Show button in this section
               </div>
 
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s5color"
+                  value="{{$content->where('placement', 's5bgcolor')->first() != null ? $content->where('placement', 's5bgcolor')->first()->content : '#ffffff'}}"
+                  data-type="text" data-page="landing" data-placement="s5bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s5fontcolor"
+                  value="{{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}}"
+                  data-type="text" data-page="landing" data-placement="s5fontcolor">
+              </div>
+
               <div class="upload-btns">
                 <div class="row">
                   <div class="col-md-6 col-sm-12">
@@ -338,6 +432,19 @@
                  data-type="text" data-page="landing" data-placement="s6p"
                 >{{$content->where('placement', 's6p')->first() != null ? $content->where('placement', 's6p')->first()->content : ''}}</textarea>
               </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Background color for this section: <input type="color" name="s6color"
+                  value="{{$content->where('placement', 's6bgcolor')->first() != null ? $content->where('placement', 's6bgcolor')->first()->content : '#15053a'}}"
+                  data-type="text" data-page="landing" data-placement="s6bgcolor">
+              </div>
+
+              <div class="form-group mt-5 ml-0 mb-5">
+                Font color for this section: <input type="color" name="s6fontcolor"
+                  value="{{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}}"
+                  data-type="text" data-page="landing" data-placement="s6fontcolor">
+              </div>
+
             </div>
           </div>
         </div>
