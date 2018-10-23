@@ -456,12 +456,12 @@ p.txt-copyright {
 }
 
 .thick-pink-border {
-  border: 0.5vw solid #fff;
+  border: 1.5vw solid #fff;
   border-bottom: 0;
 }
 
 .thick-pink-border-footer {
-  border: 0.5vw solid #fff;
+  border: 1.5vw solid #fff;
   /* border-top: 0; */
 }
 
@@ -592,7 +592,7 @@ p.txt-copyright {
 }
 
 .thick-purple-border-footer {
-    border: 0.5vw solid #fff;
+    border: 1.5vw solid #fff;
     /* border-bottom: 0; */
 }
 

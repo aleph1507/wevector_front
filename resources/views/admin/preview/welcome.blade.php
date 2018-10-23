@@ -177,11 +177,11 @@
         <form class="c-form" action="index.html" id="c-form" method="post">
           <div class="row">
             <div class="col-12 col-lg-6 padded-right">
-              <input type="text" placeholder="Your Name *" name="name" class="c-form-input">
-              <input type="text" placeholder="Enter address *" name="address" class="c-form-input">
-              <input type="text" placeholder="Phone" name="phone" class="c-form-input">
-              <input type="text" placeholder="Company *" name="company" class="c-form-input">
-              <input type="text" placeholder="City *" name="city" class="c-form-input">
+              <input type="text" placeholder="Your Name *" name="name" class="c-form-input" required>
+              <input type="email" placeholder="Enter address *" name="address" class="c-form-input" required>
+              <input type="phone" placeholder="Phone" name="phone" class="c-form-input">
+              <input type="text" placeholder="Company *" name="company" class="c-form-input" required>
+              <input type="text" placeholder="City *" name="city" class="c-form-input" required>
               <input type="text" placeholder="Country" name="country" class="c-form-input">
             </div>
             <div class="col-12 col-lg-6 padded-left text-left">
@@ -189,15 +189,25 @@
                 Please tell us a bit more about you enquiry *
               </label>
               <textarea name="c-form-message" name="msg" id="c-form-message"
-              placeholder="Add note here..." class="c-form-input c-form-textarea"></textarea>
+              placeholder="Add note here..." class="c-form-input c-form-textarea" required></textarea>
             </div>
           </div>
           <div class="row">
             <div class="col-12 mx-auto">
-              <button type="button" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>
+              {{-- <div class="g-recaptcha"
+                 data-sitekey="6LcyZXYUAAAAABiKRyp9tLIVW4FcKkFiHhTKTBFp"
+                 data-callback="contactCaptcha"
+                 data-size="invisible">
+              </div> --}}
+              {!! app('captcha')->render(); !!}
             </div>
-            <div id="submitMsg" class="col-12 mx-auto">
-
+          </div>
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>
+            </div>
+            <div id="submitMsg" class="col-xs-10 col-md-6 col-lg-4 alert mx-auto mt-5">
+              <i class="fa fa-spinner fa-spin" style="font-size:48px;color:red"></i>
             </div>
           </div>
         </form>
