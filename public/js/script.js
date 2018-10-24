@@ -47,18 +47,7 @@ window.addEventListener('load', function (event) {
     });
   }
 
-  // if(sendMsgBtn != null){
-  //   sendMsgBtn.addEventListener('click', function() {
-  //     if(cForm != null){
-  //       cForm.classList.add('transparent');
-  //       msgImg.classList.remove("transparent");
-  //     }
-  //   });
-  // }
-
   function contactCaptcha() {
-    // e.preventDefault();
-    console.log('getFormData(cForm): ', getFormData(cForm));
     data = getFormData(cForm);
     submittedMsg = document.getElementById('submitMsg');
     $('#submitMsg i').css({'display': 'inline-block'});
@@ -73,21 +62,7 @@ window.addEventListener('load', function (event) {
       url: "/contactmail/send",
       method: 'POST',
       data: JSON.stringify(data),
-      // data: {
-      //   data,
-      //   "g-recaptcha-response": $("#g-recaptcha-response").val()
-      // },
       success: function(data, textStatus, xhr) {
-       // console.log('data: ', data);
-       // console.log('textStatus: ', textStatus);
-       // console.log('xhr: ', xhr);
-       // console.log('xhr.status', xhr.status);
-       // $(submittedMsg).css({
-       //   'display' : 'block',
-       //   'padding' : '6vh 3vh',
-       //   'background-color' : 'lightgreen',
-       //   'border-color' : '2px solid green'
-       // });
        $('#submitMsg i').css({'display': 'none'});
        if($(submittedMsg).hasClass('alert-danger'))
         $(submittedMsg).removeClass('alert-danger');
@@ -99,13 +74,6 @@ window.addEventListener('load', function (event) {
      },
      error: function(xhr, status, error, message) {
        $('#submitMsg i').css({'display': 'none'});
-       // console.log('error');
-       // console.log('xhr: ', xhr);
-       // console.log('message: ', xhr.responseJSON.message);
-       // console.log('status: ', status);
-       // console.log('error: ', error);
-       // console.log('xhr.status: ', xhr.status);
-
        if($(submittedMsg).hasClass('alert-success'))
         $(submittedMsg).removeClass('alert-success');
 
@@ -128,10 +96,6 @@ window.addEventListener('load', function (event) {
   }
 
   _submitEvent = function() {
-    console.log('submit button clicked.');
-
-    // e.preventDefault();
-    console.log('getFormData(cForm): ', getFormData(cForm));
     data = getFormData(cForm);
     submittedMsg = document.getElementById('submitMsg');
     $('#submitMsg i').css({'display': 'inline-block'});
@@ -146,23 +110,8 @@ window.addEventListener('load', function (event) {
       url: "/contactmail/send",
       method: 'POST',
       data: data,
-      // data: {
-      //   data,
-      //   "g-recaptcha-response": $("#g-recaptcha-response").val()
-      // },
       success: function(data, textStatus, xhr) {
-       // console.log('data: ', data);
-       // console.log('textStatus: ', textStatus);
-       // console.log('xhr: ', xhr);
-       // console.log('xhr.status', xhr.status);
-       // $(submittedMsg).css({
-       //   'display' : 'block',
-       //   'padding' : '6vh 3vh',
-       //   'background-color' : 'lightgreen',
-       //   'border-color' : '2px solid green'
-       // });
        if(window.location.pathname == '/contact'){
-         console.log('vo if, window.location.pathname: ', window.location.pathname);
          if(msgImg != null){
            cForm.classList.add('transparent');
            msgImg.classList.remove("transparent");
@@ -180,13 +129,6 @@ window.addEventListener('load', function (event) {
      },
      error: function(xhr, status, error, message) {
        $('#submitMsg i').css({'display': 'none'});
-       // console.log('error');
-       // console.log('xhr: ', xhr);
-       // console.log('message: ', xhr.responseJSON.message);
-       // console.log('status: ', status);
-       // console.log('error: ', error);
-       // console.log('xhr.status: ', xhr.status);
-
        if($(submittedMsg).hasClass('alert-success'))
         $(submittedMsg).removeClass('alert-success');
 
@@ -198,56 +140,9 @@ window.addEventListener('load', function (event) {
 }
 
   if(sendMsgBtn != null){
-    // sendMsgBtn.addEventListener('click', function() {
-    //   console.log('clicked send message');
-    //   var xmlhttp = new XMLHttpRequest();
-    //   xmlhttp.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       // submitMsg.innerHTML = this.responseText;
-    //       console.log('this.responseText: ', this.responseText);
-    //     }
-    //   }
-    //   xmlhttp.open("GET", "ajax_mail_handler.php", true);
-    //   xmlhttp.send();
-    // });
-    console.log('sendMsgBtn: ', sendMsgBtn)
     cForm.addEventListener('submit', function(e) {
-      // grecaptcha.execute();
-      // e.preventDefault();
-      // grecaptcha.execute();
-      // contactCaptcha();
-    });
 
-    // jQuery.ajax({
-    //   url: "/contact/send",
-    //   method: 'POST',
-    //   contentType: false,
-    //   processData: false,
-    //   cache: false,
-    //   data: formData,
-    //   success: function(data, textStatus, xhr) {
-    //     console.log('data: ', data);
-    //     console.log('textStatus: ', textStatus);
-    //     console.log('xhr: ', xhr);
-    //     console.log('xhr.status', xhr.status);
-    //     item = call == 'set_menus' ? 'menu items' : 'data';
-    //     successToast('Success!', 'Your ' + item + ' has been saved');
-    //   },
-    //   error: function(xhr, status, error, message) {
-    //     console.log('error');
-    //     console.log('xhr: ', xhr);
-    //     console.log('message: ', xhr.responseJSON.message);
-    //     console.log('status: ', status);
-    //     console.log('error: ', error);
-    //     console.log('xhr.status: ', xhr.status);
-    //     if(xhr.status == 418)
-    //       failToast('Error!', xhr.responseJSON.message);
-    //     else {
-    //       item = call == 'set_menus' ? 'menu items' : 'data';
-    //       failToast('Error!', 'There\'s been a problem saving your ' + item);
-    //     }
-    //   }
-    // });
+    });
   }
 
   function smoothScroll(target, duration){
