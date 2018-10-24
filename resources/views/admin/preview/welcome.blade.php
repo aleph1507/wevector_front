@@ -198,28 +198,51 @@
         <form class="c-form" action="index.html" id="c-form" method="post">
           <div class="row">
             <div class="col-12 col-lg-6 padded-right">
-              <input type="text" placeholder="Your Name *" name="name" class="c-form-input" required>
-              <input type="email" placeholder="Enter address *" name="address" class="c-form-input" required>
-              <input type="phone" placeholder="Phone" name="phone" class="c-form-input">
-              <input type="text" placeholder="Company *" name="company" class="c-form-input" required>
-              <input type="text" placeholder="City *" name="city" class="c-form-input" required>
-              <input type="text" placeholder="Country" name="country" class="c-form-input">
+              <input type="text" placeholder="Your Name *" name="name" class="c-form-input"
+                style="
+                  color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              required>
+              <input type="email" placeholder="Enter address *" name="address" class="c-form-input"
+                style="
+                  color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              required>
+              <input type="phone" placeholder="Phone" name="phone" class="c-form-input"
+              style="
+                color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              >
+              <input type="text" placeholder="Company *" name="company" class="c-form-input"
+              style="
+                color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              required>
+              <input type="text" placeholder="City *" name="city" class="c-form-input"
+              style="
+                color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              required>
+              <input type="text" placeholder="Country" name="country" class="c-form-input"
+              style="
+                color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              >
             </div>
             <div class="col-12 col-lg-6 padded-left text-left">
               <label for="c-form-message" class="c-form-label">
                 Please tell us a bit more about you enquiry *
               </label>
               <textarea name="c-form-message" name="msg" id="c-form-message"
-              placeholder="Add note here..." class="c-form-input c-form-textarea" required></textarea>
+              placeholder="Add note here..." class="c-form-input c-form-textarea"
+              style="
+                color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+              required></textarea>
             </div>
           </div>
           <div class="row">
             <div class="col-12 mx-auto">
-              {{-- <div class="g-recaptcha"
-                 data-sitekey="6LcyZXYUAAAAABiKRyp9tLIVW4FcKkFiHhTKTBFp"
-                 data-callback="contactCaptcha"
-                 data-size="invisible">
-              </div> --}}
               {!! app('captcha')->render(); !!}
             </div>
           </div>
