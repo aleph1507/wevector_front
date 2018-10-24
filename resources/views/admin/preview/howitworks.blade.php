@@ -110,7 +110,7 @@
 
       <div class="next-btn">
         <div class="row flex-row-center">
-          <a class="pink-button-lg">select a plan</a>
+          <a href="{{route('preview', ['page'=>'plans'])}}" class="pink-button-lg">select a plan</a>
         </div>
       </div>
     </div>
