@@ -196,32 +196,32 @@
               <input type="text" placeholder="Your Name *" name="name" class="c-form-input"
                 style="
                   color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required>
               <input type="email" placeholder="Enter address *" name="address" class="c-form-input"
                 style="
                   color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                  border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required>
               <input type="phone" placeholder="Phone" name="phone" class="c-form-input"
               style="
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               >
               <input type="text" placeholder="Company *" name="company" class="c-form-input"
               style="
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required>
               <input type="text" placeholder="City *" name="city" class="c-form-input"
               style="
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required>
               <input type="text" placeholder="Country" name="country" class="c-form-input"
               style="
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               >
             </div>
             <div class="col-12 col-lg-6 padded-left text-left">
