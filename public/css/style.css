@@ -792,6 +792,7 @@ img#msgImg {
   font-size: 18px;
   color: #000;
   letter-spacing: 0.8px;
+  background-color: #f9f9f9;
 }
 
 .contact-page-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
