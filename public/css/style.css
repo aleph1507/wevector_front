@@ -465,10 +465,11 @@ p.txt-copyright {
   /* border-top: 0; */
 }
 
-.pink-button-lg {
+.pink-button-lg, .pink-button-lg:hover {
   background-color: #f0386b;
   color: #fff;
   text-transform: uppercase;
+  text-decoration: none;
   border: 0;
   padding: 2% 10%;
   border-radius: 5em;

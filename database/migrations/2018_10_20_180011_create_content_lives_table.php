@@ -19,8 +19,8 @@ class CreateContentLivesTable extends Migration
             $table->string('page');
             $table->string('placement');
             $table->text('content');
-            $table->string('background-image')->nullable();
-            $table->string('background-color')->nullable();
+            // $table->string('background-image')->nullable();
+            // $table->string('background-color')->nullable();
             $table->timestamps();
         });
     }
