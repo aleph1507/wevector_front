@@ -110,7 +110,7 @@
 
       <div class="next-btn">
         <div class="row flex-row-center">
-          <button class="pink-button-lg">select a plan</button>
+          <a class="pink-button-lg">select a plan</a>
         </div>
       </div>
     </div>
