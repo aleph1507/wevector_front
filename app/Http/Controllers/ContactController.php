@@ -38,6 +38,6 @@ class ContactController extends Controller
       //   'g-recaptcha-response' => 'required|captcha'
       // ]);
 
-      Mail::to("info@thinkerlab.io")->send(new ContactEmail($request->all()));
+      Mail::to("hello@litra.com.mk")->send(new ContactEmail($request->all()));
     }
 }
