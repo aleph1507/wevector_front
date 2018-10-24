@@ -237,7 +237,7 @@
               placeholder="Add note here..." class="c-form-input c-form-textarea"
               style="
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
-                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's5fontcolor')->first()->content : '#000000'}};"
+                border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required></textarea>
             </div>
           </div>
