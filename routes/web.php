@@ -31,6 +31,15 @@ Route::get('/contact', function() {
   return view('contact')->with(compact('content'));
 })->name('contact');
 
+Route::get('/register', function() {
+  $content = App\ContentLive::landing()->get();
+  return view('welcome')->with(compact('content'));
+});
+
+Route::post('/register', function() {
+  echo 'Sorry, registration has ended';
+});
+
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('admin');
