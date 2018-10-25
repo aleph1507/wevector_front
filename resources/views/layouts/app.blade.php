@@ -41,8 +41,27 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <?php
+                      $nav_type = 'asdasd';
+                      if(Request::is('admin'))
+                        $nav_type = 'menu';
+                      if(Request::is('admin/landing'))
+                        $nav_type = 'landing';
+                      if(Request::is('admin/landing'))
+                        $nav_type = 'howitworks';
+                      if(Request::is('admin/packages'))
+                        $nav_type = 'packages';
+                      if(Request::is('admin/contact'))
+                        $nav_type = 'contact';
+                      if(Request::is('admin/footer'))
+                        $nav_type = 'footer';
+                    ?>
                     <ul class="navbar-nav ml-auto">
                       @if(Auth::check())
+                        <li class="nav-item pr-3">
+                          <a href="#" class="nav-link btn btn-outline-primary ml-5 send"
+                            data-type="{{$nav_type}}">Save</a>
+                        </li>
                         <li class="nav-item pr-3">
                           <a href="{{route('preview')}}" class="nav-link btn btn-outline-success ml-5">Preview</a>
                         </li>

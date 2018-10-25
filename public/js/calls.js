@@ -131,7 +131,7 @@ jQuery('document').ready(function() {
         }
         break;
       default:
-        // console.log('default');
+        console.log('default');
         break;
     }
 
