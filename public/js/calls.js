@@ -44,9 +44,11 @@ jQuery('document').ready(function() {
         content = $(e).is(':checked');
       else{
         content = $(e).val();
-
       }
     }
+
+    console.log('placement: ', $(e).data("placement"));
+    console.log('ent: ', JSON.stringify(ent));
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
     formData.append($(e).data("placement"), JSON.stringify(ent));
   }

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Content;
 use App\ContentLive;
 use Validator;
+use Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         //   'App\\Validators\\ReCaptchaController@validate'
         // );
 
+        Blade::setEchoFormat('e(utf8_encode(%s))');
         view()->composer('admin.preview.partials._footer', function($view) {
           $view->with('footer', Content::footer()->get());
         });
