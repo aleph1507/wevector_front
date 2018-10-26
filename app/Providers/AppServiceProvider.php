@@ -23,7 +23,8 @@ class AppServiceProvider extends ServiceProvider
         //   'App\\Validators\\ReCaptchaController@validate'
         // );
 
-        Blade::setEchoFormat('e(utf8_encode(%s))');
+        // Blade::setEchoFormat('e(utf8_encode(%s))');
+        \Blade::setEchoFormat('nl2br(e(%s))');
         view()->composer('admin.preview.partials._footer', function($view) {
           $view->with('footer', Content::footer()->get());
         });

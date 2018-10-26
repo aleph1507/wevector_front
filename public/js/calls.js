@@ -26,13 +26,10 @@ jQuery('document').ready(function() {
         c_entry.placement = $(menuInputs[i]).val();
       }
     }
-    console.log('c_entry: ', c_entry);
     formData.append(menuItem, JSON.stringify(c_entry));
-    // return c_entry;
   }
 
   function setEntry(e){
-    console.log("setEntry e:", e);
     ent = new entry();
     content = '';
     bcolor = null;
@@ -53,7 +50,6 @@ jQuery('document').ready(function() {
       }
     }
 
-    console.log('placement: ', $(e).data("placement"));
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
     formData.append($(e).data("placement"), JSON.stringify(ent));
   }
@@ -77,13 +73,10 @@ jQuery('document').ready(function() {
   }
 
   jQuery('.send').click(function(e){
-    console.log("SEND");
     e.preventDefault();
     call = null;
     payload = null;
     formdata = new FormData();
-    console.log('$(e.target).data("type"): ', $(e.target).data("type"));
-
 
     switch($(e.target).data("type")){
       case 'menu':
@@ -103,7 +96,6 @@ jQuery('document').ready(function() {
         for(i = 0; i<$('*[data-page="landing"]').length; i++){
           payload.push(setEntry($('*[data-page="landing"]')[i]));
         }
-        console.log('payload: ', payload);
         break;
       case 'howitworks':
         call = 'howitworks';
@@ -112,7 +104,6 @@ jQuery('document').ready(function() {
         for(i = 0; i<$('*[data-page="howitworks"]').length; i++){
           payload.push(setEntry($('*[data-page="howitworks"]')[i]));
         }
-        console.log('payload: ', payload);
         break;
       case 'packages':
         call = 'plans';
@@ -121,7 +112,6 @@ jQuery('document').ready(function() {
         for(i = 0; i<$('*[data-page="packages"]').length; i++){
           payload.push(setEntry($('*[data-page="packages"]')[i]));
         }
-        console.log('payload: ', payload);
         break;
       case 'contact':
         call = 'contact';
@@ -130,7 +120,6 @@ jQuery('document').ready(function() {
         for(i = 0; i<$('*[data-page="contact"]').length; i++){
           payload.push(setEntry($('*[data-page="contact"]')[i]));
         }
-        console.log('payload: ', payload);
         break;
       case 'footer':
         call = 'footer';
@@ -141,7 +130,6 @@ jQuery('document').ready(function() {
         }
         break;
       default:
-        console.log('default');
         break;
     }
 
@@ -160,20 +148,10 @@ jQuery('document').ready(function() {
         cache: false,
         data: formData,
         success: function(data, textStatus, xhr) {
-          // console.log('data: ', data);
-          // console.log('textStatus: ', textStatus);
-          // console.log('xhr: ', xhr);
-          // console.log('xhr.status', xhr.status);
           item = call == 'set_menus' ? 'menu items' : 'data';
           successToast('Success!', 'Your ' + item + ' has been saved');
         },
         error: function(xhr, status, error, message) {
-          // console.log('error');
-          // console.log('xhr: ', xhr);
-          // console.log('message: ', xhr.responseJSON.message);
-          // console.log('status: ', status);
-          // console.log('error: ', error);
-          // console.log('xhr.status: ', xhr.status);
           if(xhr.status == 418)
             failToast('Error!', xhr.responseJSON.message);
           else {
@@ -200,19 +178,9 @@ jQuery('document').ready(function() {
       cache: false,
       data: '',
       success: function(data, textStatus, xhr) {
-        console.log('data: ', data);
-        console.log('textStatus: ', textStatus);
-        console.log('xhr: ', xhr);
-        console.log('xhr.status', xhr.status);
         successToast('Success!', 'Your content has been published!');
       },
       error: function(xhr, status, error, message) {
-        console.log('error');
-        console.log('xhr: ', xhr);
-        // console.log('message: ', xhr.responseJSON.message);
-        console.log('status: ', status);
-        console.log('error: ', error);
-        console.log('xhr.status: ', xhr.status);
         if(xhr.status == 418)
           failToast('Error!', xhr.responseJSON.message);
         else {
@@ -235,7 +203,6 @@ jQuery('document').ready(function() {
   }
 
   $(".upload-input").on('change', function(e) {
-    console.log('vo event');
     readURL(e.target);
   });
 
