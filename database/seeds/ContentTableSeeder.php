@@ -63,13 +63,13 @@ class ContentTableSeeder extends Seeder
         ['text', 'howitworks', 's2h', 'Determine your needs'],
         ['text', 'howitworks', 's2p', 'Determine how many raster graphics you would like to vectorize and how fast you would like them back. Leave the rest to us.'],
         ['img', 'howitworks', 's2i', 'group-5.svg'],
-        ['text', 'howitworks', 's3h', 'Select a plan  that suits your goals'],
+        ['text', 'howitworks', 's3h', 'Select a plan that suits your goals'],
         ['text', 'howitworks', 's3p', 'We offer three monthly plans that allow for 15 vector artworks over a period of one month. Where they differ is in how fast you would like the vector artworks to be available.'],
         ['img', 'howitworks', 's3i', 'group-6.svg'],
-        ['text', 'howitworks', 's4h', 'Prepare your  raster graphics '],
+        ['text', 'howitworks', 's4h', 'Prepare your raster graphics'],
         ['text', 'howitworks', 's4p', 'Your final vector artworks will be as good as the raster graphics you provide us with. We recommend you spend a few minutes to select the best quality you have.'],
         ['text', 'howitworks', 's4i', 'group-4.svg'],
-        ['text', 'howitworks', 's5h', 'Share your raster graphics with us     '],
+        ['text', 'howitworks', 's5h', 'Share your raster graphics with us'],
         ['text', 'howitworks', 's5p', 'The only thing left is to tell us of any specific needs & share your graphics with us. We’ll collaborate over Dropbox, where you’ll have full access to your files.'],
         ['img', 'howitworks', 's5i', 'group-2.svg'],
         ['text', 'packages', 's1h', 'OUR PLANS. SIMPLE.'],

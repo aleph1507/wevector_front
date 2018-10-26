@@ -1,4 +1,9 @@
 jQuery('document').ready(function() {
+
+  function myTrim(x) {
+    return x.replace(/^\s+|\s+$/gm,'');
+  }
+
   function entry(type = "", page = "", placement = "", content = "", background_image = null, background_color=null) {
     this.placement = placement;
     this.type = type;
@@ -44,7 +49,7 @@ jQuery('document').ready(function() {
       if($(e).prop("tagName").toLowerCase() == "input" && $(e).attr('type').toLowerCase() == 'checkbox')
         content = $(e).is(':checked');
       else{
-        content = $(e).val();
+        content = myTrim($(e).val());
       }
     }
 
