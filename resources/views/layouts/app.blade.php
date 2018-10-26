@@ -47,7 +47,7 @@
                         $nav_type = 'menu';
                       if(Request::is('admin/landing'))
                         $nav_type = 'landing';
-                      if(Request::is('admin/landing'))
+                      if(Request::is('admin/howitworks'))
                         $nav_type = 'howitworks';
                       if(Request::is('admin/packages'))
                         $nav_type = 'packages';

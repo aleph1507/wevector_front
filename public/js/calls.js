@@ -27,6 +27,7 @@ jQuery('document').ready(function() {
   }
 
   function setEntry(e){
+    console.log("setEntry e:", e);
     ent = new entry();
     content = '';
     bcolor = null;
@@ -48,7 +49,6 @@ jQuery('document').ready(function() {
     }
 
     console.log('placement: ', $(e).data("placement"));
-    console.log('ent: ', JSON.stringify(ent));
     ent = new entry($(e).data("type"), $(e).data("page"), $(e).data("placement"), content);
     formData.append($(e).data("placement"), JSON.stringify(ent));
   }
@@ -72,10 +72,13 @@ jQuery('document').ready(function() {
   }
 
   jQuery('.send').click(function(e){
+    console.log("SEND");
     e.preventDefault();
     call = null;
     payload = null;
     formdata = new FormData();
+    console.log('$(e.target).data("type"): ', $(e.target).data("type"));
+
 
     switch($(e.target).data("type")){
       case 'menu':
