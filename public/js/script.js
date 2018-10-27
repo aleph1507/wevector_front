@@ -8,6 +8,11 @@ function mobile_menu() {
 };
 
 window.addEventListener('load', function (event) {
+
+  $("body").children().each(function() {
+      $(this).html($(this).html().replace(/&#8232;/g,""));
+  });
+
   window.onscroll = function() {toggleMenu()};
 
   var navbar = document.getElementById("navbar");
