@@ -80,7 +80,7 @@
             <div class="mt-4">
               <div class="form-group">
                 Title: <input type="text" name="howitworks-head-title" class="form-control step-title"
-                  value="{{$content->where('placement', 's3h')->first() != null ? $content->where('placement', 's3h')->first()->content : ''}} "
+                  value="{{$content->where('placement', 's3h')->first() != null ? $content->where('placement', 's3h')->first()->content : ''}}"
                   data-type="text" data-page="howitworks" data-placement="s3h">
               </div>
               <div class="form-group">
