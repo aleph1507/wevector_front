@@ -47,6 +47,7 @@ jQuery('document').ready(function() {
         content = $(e).is(':checked');
       else{
         content = myTrim($(e).val());
+        content = content.replace("\u2028", "\\u2028").replace("\u2029", "\\u2029");
       }
     }
 

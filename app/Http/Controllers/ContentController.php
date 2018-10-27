@@ -38,6 +38,7 @@ class ContentController extends Controller
           continue;
 
         $this->placement = $arr['placement'];
+        // $arr['content'] = str_replace()
         Content::updateOrCreate(['page' => $page, 'placement' => $arr['placement']], $arr)->save();
       }
     }
