@@ -172,8 +172,7 @@
             <div class="mt-4">
               <div class="form-group">
                 Title: <input type="text" name="howitworks-head-title" class="form-control step-title"
-                  value="{{$content->where('placement', 's5h')->first() != null ? $content->where('placement', 's5h')->first()->content : ''}} "
-                  data-type="text" data-page="howitworks" data-placement="s5h">
+                  value="{{$content->where('placement', 's5h')->first() != null ? $content->where('placement', 's5h')->first()->content : ''}} " data-type="text" data-page="howitworks" data-placement="s5h">
               </div>
               <div class="form-group">
                 Text: <textarea name="howitworks-page-text" id="howitworks-page-text" class="form-control" cols="30" rows="5"
