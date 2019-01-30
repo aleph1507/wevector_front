@@ -68,6 +68,7 @@ class ContentController extends Controller
                             'undraw-mail-cg-1-t.svg',
                             'we_vector_logo.svg', 'logo-pinterest.png', 'logo-linkedin.png', 'logo-facebook.png'];
         $files_path = 'img/' . $request->call . '/';
+        if(!File::exists($files_path)) File::makeDirectory($files_path, 0777, true);
         foreach($i_files as $i){
           if($request->hasFile($i)) {
             $entry = Content::where('page', $request->call)->where('placement', $i)->first();

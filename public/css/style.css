@@ -710,16 +710,12 @@ p.txt-copyright {
 }
 
 .input-btn {
-  /* position:absolute; */
   display:inline-block;
   font-size:16px;
-  /* top:0px; */
-  /* left:0px; */
   z-index:1;
   cursor:pointer;
   border-color: black;
   color:black;
-  /* max-width: 50%; */
 }
 
 .nlp {
