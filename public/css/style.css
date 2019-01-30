@@ -23,6 +23,11 @@ html {
   height:100%;
 }
 
+a.disabled {
+    cursor: not-allowed;
+    color: grey;
+}
+
 body {
   width:100%;
   height:100%;

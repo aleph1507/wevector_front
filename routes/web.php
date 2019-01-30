@@ -16,15 +16,20 @@ Route::get('/', function () {
     return view('welcome')->with(compact('content'));
 });
 
-Route::get('/howitworks', function() {
-  $content = App\ContentLive::howitworks()->get();
-  return view('howitworks')->with(compact('content'));
-})->name('howitworks');
+//Route::get('/howitworks', function() {
+//  $content = App\ContentLive::howitworks()->get();
+//  return view('howitworks')->with(compact('content'));
+//})->name('howitworks');
+//
+//Route::get('/plans', function() {
+//  $content = App\ContentLive::packages()->get();
+//  return view('plans')->with(compact('content'));
+//})->name('plans');
 
-Route::get('/plans', function() {
-  $content = App\ContentLive::packages()->get();
-  return view('plans')->with(compact('content'));
-})->name('plans');
+//Route::get('/contact', function() {
+//  $content = App\ContentLive::contact()->get();
+//  return view('contact')->with(compact('content'));
+//})->name('contact');
 
 Route::get('/contact', function() {
   $content = App\ContentLive::contact()->get();

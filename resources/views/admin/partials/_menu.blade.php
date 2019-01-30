@@ -7,10 +7,10 @@
         data-type="menu" data-page="menu" data-placement="menufontcolor">
     </div> --}}
 
-    Menu item <input type="text" class="send-input" data-type="menu" data-page="howitworks"
+    Menu item <input disabled type="text" class="send-input" data-type="menu" data-page="howitworks"
       value="{{$content->where('page', 'howitworks')->first() != null ? $content->where('page', 'howitworks')->first()->content : ''}}" id="howitworks">
-      linking to <a href="{{route('howitworks')}}">How it works</a>, at position
-    <select name="menu_index_select" class="send-input" data-type="menu" data-page="howitworks" id="menu-placement1">
+      linking to <a class="disabled" href="{{--route('howitworks')--}}">How it works</a>, at position
+    <select disabled name="menu_index_select" class="send-input" data-type="menu" data-page="howitworks" id="menu-placement1">
       <option value="1"
         {{$content->where('page', 'howitworks')->first() != null ? ($content->where('page', 'howitworks')->first()->placement == 1 ? 'selected' : '') : ''}}>1</option>
       <option value="2"
@@ -23,10 +23,10 @@
   </div>
   <hr>
   <div class="mt-4">
-    Menu item <input type="text" class="send-input" data-type="menu" data-page="plans"
+    Menu item <input disabled type="text" class="send-input" data-type="menu" data-page="plans"
       value="{{$content->where('page', 'plans')->first() != null ? $content->where('page', 'plans')->first()->content : ''}}">
-      linking to <a href="{{route('plans')}}">Plans</a>, at position
-    <select name="menu_index_select" class="send-input" data-type="menu" data-page="plans" id="menu_index_select">
+      linking to <a class="disabled" href="{{--route('plans')--}}">Plans</a>, at position
+    <select disabled name="menu_index_select" class="send-input" data-type="menu" data-page="plans" id="menu_index_select">
       <option value="1"
         {{$content->where('page', 'plans')->first() != null ? $content->where('page', 'plans')->first()->placement == 1 ? 'selected' : '' : ''}}>1</option>
       <option value="2"
@@ -39,10 +39,10 @@
   </div>
   <hr>
   <div class="mt-4">
-    Menu item <input type="text" class="send-input" data-type="menu" data-page="contact"
+    Menu item <input disabled type="text" class="send-input" data-type="menu" data-page="contact"
       value="{{$content->where('page', 'contact')->first() != null ? $content->where('page', 'contact')->first()->content : ''}}">
-      linking to <a href="{{route('contact')}}">Contact</a>, at position
-    <select name="menu_index_select" class="send-input" data-type="menu" data-page="contact" id="menu_index_select">
+      linking to <a class="disabled" href="{{--route('contact')--}}">Contact</a>, at position
+    <select disabled name="menu_index_select" class="send-input" data-type="menu" data-page="contact" id="menu_index_select">
       <option value="1"
         {{$content->where('page', 'contact')->first() != null ? $content->where('page', 'contact')->first()->placement == 1 ? 'selected' : '' : ''}}>1</option>
       <option value="2"
@@ -55,10 +55,10 @@
   </div>
   <hr>
   <div class="mt-4">
-    Menu item <input type="text" class="send-input" data-type="menu" data-page="customers"
+    Menu item <input disabled type="text" class="send-input" data-type="menu" data-page="customers"
       value="{{$content->where('page', 'customers')->first() != null ? $content->where('page', 'customers')->first()->content : ''}}">
-      linking to <a href="#">Customers</a>, at position
-    <select name="menu_index_select" class="send-input" data-type="menu" data-page="customers" id="menu_index_select">
+      linking to <a class="disabled" href="#">Customers</a>, at position
+    <select disabled name="menu_index_select" class="send-input" data-type="menu" data-page="customers" id="menu_index_select">
       <option value="1"
         {{$content->where('page', 'customers')->first() != null ? $content->where('page', 'customers')->first()->placement == 1 ? 'selected' : '' : ''}}>1</option>
       <option value="2"
