@@ -37,7 +37,6 @@ a.disabled {
     outline: none !important;
     /*border: 0 !important;*/
     box-shadow: 0 0 0 0 !important;
-    border-bottom: 1px solid grey;
 }
 
 .c-form input:focus .c-form textarea:focus{
@@ -46,6 +45,7 @@ a.disabled {
 
 .contact-page-form input:focus, .contact-page-form textarea:focus {
     background-color: #f9f9f9 !important;
+    border-bottom: 1px solid grey;
 }
 
 body {
