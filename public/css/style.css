@@ -32,9 +32,9 @@ a.disabled {
     border-radius: 0 !important;
 }
 
-#cform input:focus, #c-form input:focus {
+#c-form input:focus {
     border-radius: 0 !important;
-    outline: none;
+    outline: none !important;
 }
 
 body {
