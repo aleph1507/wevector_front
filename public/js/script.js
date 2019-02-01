@@ -146,7 +146,7 @@ window.addEventListener('load', function (event) {
   // }
 
   _submitEvent = function() {
-      alert('submitEvent');
+      // alert('submitEvent');
       // captcha();
     data = getFormData(cForm);
     // console.log('data: ', data);
@@ -171,6 +171,9 @@ window.addEventListener('load', function (event) {
          }
        }
 
+      let residuals = document.getElementById('form-residuals');
+      if(residuals) residuals.classList.add('d-none');
+
        $('#submitMsg i').css({'display': 'none'});
        if($(submittedMsg).hasClass('alert-danger'))
         $(submittedMsg).removeClass('alert-danger');
@@ -190,8 +193,8 @@ window.addEventListener('load', function (event) {
        submittedMsg.textContent = 'There has been an error.';
      },
      complete: function() {
-          let residuals = document.getElementById('form-residuals');
-          if(residuals) residuals.classList.add('d-none');
+          // let residuals = document.getElementById('form-residuals');
+          // if(residuals) residuals.classList.add('d-none');
           // document.getElementById('form-residuals').classList.add('d-none');
      }
    });
