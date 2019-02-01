@@ -190,7 +190,9 @@ window.addEventListener('load', function (event) {
        submittedMsg.textContent = 'There has been an error.';
      },
      complete: function() {
-          document.getElementById('form-residuals').classList.add('d-none');
+          let residuals = document.getElementById('form-residuals');
+          if(residuals) residuals.classList.add('d-none');
+          // document.getElementById('form-residuals').classList.add('d-none');
      }
    });
 };

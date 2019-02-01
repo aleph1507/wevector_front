@@ -16,7 +16,7 @@ class ContactController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+//            'phone' => 'required',
             'company' => 'required',
             'city' => 'required',
             'country' => 'required',

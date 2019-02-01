@@ -190,7 +190,7 @@
       </div>
 
       <div class="container">
-        <form class="c-form" action="index.html" id="c-form" method="post">
+        <form class="c-form" id="c-form" method="post">
             {{csrf_field()}}
           <div class="row">
             <div class="col-12 col-lg-6 padded-right">
@@ -233,6 +233,7 @@
                 color: {{$content->where('placement', 's6fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#ffffff'}};
                 border-color: {{$content->where('placement', 's5fontcolor')->first() != null ? $content->where('placement', 's6fontcolor')->first()->content : '#000000'}};"
               required autocomplete="off"></textarea>
+                <div class="g-recaptcha mt-4" id="google-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
             </div>
           </div>
           {{--<div class="row">--}}
@@ -240,6 +241,9 @@
               {{--{!! app('captcha')->render(); !!}--}}
             {{--</div>--}}
           {{--</div>--}}
+            {{--<div class="col-md-9 col-sm-12">--}}
+                {{--<div class="g-recaptcha" id="google-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>--}}
+            {{--</div>--}}
           <div class="row">
             <div class="col-12 mx-auto">
               <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>
