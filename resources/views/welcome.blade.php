@@ -191,6 +191,7 @@
 
       <div class="container">
         <form class="c-form" action="index.html" id="c-form" method="post">
+            {{csrf_field()}}
           <div class="row">
             <div class="col-12 col-lg-6 padded-right">
               <input type="text" placeholder="Your Name *" name="name" class="c-form-input"
@@ -234,11 +235,11 @@
               required autocomplete="off"></textarea>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12 mx-auto">
-              {!! app('captcha')->render(); !!}
-            </div>
-          </div>
+          {{--<div class="row">--}}
+            {{--<div class="col-12 mx-auto">--}}
+              {{--{!! app('captcha')->render(); !!}--}}
+            {{--</div>--}}
+          {{--</div>--}}
           <div class="row">
             <div class="col-12 mx-auto">
               <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>

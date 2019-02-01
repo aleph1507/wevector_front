@@ -5,8 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Content;
 use App\ContentLive;
-use Validator;
+//use Validator;
 use Blade;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Blade::setEchoFormat('e(utf8_encode(%s))');
         // \Blade::setEchoFormat('nl2br(e(%s))');
+        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
+
         view()->composer('admin.preview.partials._footer', function($view) {
           $view->with('footer', Content::footer()->get());
         });

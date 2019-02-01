@@ -33,4 +33,5 @@
       color: #f0386b;
     }
   </style>
+    @include('partials/recaptcha')
 </head>

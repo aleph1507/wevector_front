@@ -52,42 +52,42 @@ window.addEventListener('load', function (event) {
     });
   }
 
-  function contactCaptcha() {
-    data = getFormData(cForm);
-    submittedMsg = document.getElementById('submitMsg');
-    $('#submitMsg i').css({'display': 'inline-block'});
-
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-    jQuery.ajax({
-      url: "/contactmail/send",
-      method: 'POST',
-      data: JSON.stringify(data),
-      success: function(data, textStatus, xhr) {
-       $('#submitMsg i').css({'display': 'none'});
-       if($(submittedMsg).hasClass('alert-danger'))
-        $(submittedMsg).removeClass('alert-danger');
-
-       $(submittedMsg).addClass('alert-success');
-       $(submittedMsg).css({'display' : 'inline-block'});
-
-       submittedMsg.textContent = 'Your message has been sent';
-     },
-     error: function(xhr, status, error, message) {
-       $('#submitMsg i').css({'display': 'none'});
-       if($(submittedMsg).hasClass('alert-success'))
-        $(submittedMsg).removeClass('alert-success');
-
-       $(submittedMsg).addClass('alert-danger');
-       $(submittedMsg).css({'display' : 'inline-block'});
-       submittedMsg.textContent = 'There has been an error. Please try again later';
-     }
-   });
-  }
+  // function contactCaptcha() {
+  //   data = getFormData(cForm);
+  //   submittedMsg = document.getElementById('submitMsg');
+  //   $('#submitMsg i').css({'display': 'inline-block'});
+  //
+  //   $.ajaxSetup({
+  //     headers: {
+  //       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //     }
+  //   });
+  //
+  //   jQuery.ajax({
+  //     url: "/contactmail/send",
+  //     method: 'POST',
+  //     data: JSON.stringify(data),
+  //     success: function(data, textStatus, xhr) {
+  //      $('#submitMsg i').css({'display': 'none'});
+  //      if($(submittedMsg).hasClass('alert-danger'))
+  //       $(submittedMsg).removeClass('alert-danger');
+  //
+  //      $(submittedMsg).addClass('alert-success');
+  //      $(submittedMsg).css({'display' : 'inline-block'});
+  //
+  //      submittedMsg.textContent = 'Your message has been sent';
+  //    },
+  //    error: function(xhr, status, error, message) {
+  //      $('#submitMsg i').css({'display': 'none'});
+  //      if($(submittedMsg).hasClass('alert-success'))
+  //       $(submittedMsg).removeClass('alert-success');
+  //
+  //      $(submittedMsg).addClass('alert-danger');
+  //      $(submittedMsg).css({'display' : 'inline-block'});
+  //      submittedMsg.textContent = 'There has been an error. Please try again later';
+  //    }
+  //  });
+  // }
 
   function getFormData(form){
     var unindexed_array = $(form).serializeArray();
@@ -97,11 +97,59 @@ window.addEventListener('load', function (event) {
         indexed_array[n['name']] = n['value'];
     });
 
+    indexed_array['g-recaptcha-response'] = grecaptcha.getResponse();
+
     return indexed_array;
   }
 
+  // function captcha() {
+  //     var recaptchaVal = $("#g-recaptcha-response").val();
+  //
+  //     data = getFormData(cForm);
+  //
+  //     var promise = $.ajax({
+  //         method: "POST",
+  //         url: "<?php echo site_url('contact/send_mail'); ?>",
+  //         //contentType: "application/json; charset=UTF-8",
+  //         dataType: "json",
+  //         data: {
+  //             // name: nameSelector.val(),
+  //             // email: emailSelector.val(),
+  //             // subject: subjectSelector.val(),
+  //             // message: messageSelector.val(),
+  //             ...data,
+  //             recaptcha: recaptchaVal
+  //         }
+  //     });
+  //
+  //     promise.then(function (response) {
+  //         if(response.status === "200") {
+  //             toastr.success(response.message, '');
+  //
+  //             // submitSelector.prop('disabled', false);
+  //             //
+  //             // nameSelector.val("");
+  //             // emailSelector.val("");
+  //             // subjectSelector.val("");
+  //             // messageSelector.val("");
+  //             // grecaptcha.reset();
+  //
+  //         } else {
+  //             // toastr.error(response.message, 'Грешка!');
+  //             // submitSelector.prop('disabled', false);
+  //         }
+  //
+  //     }, function (error) {
+  //         // toastr.error('Пораката не е испратена.', 'Грешка!');
+  //         // submitSelector.prop('disabled', false);
+  //     });
+  // }
+
   _submitEvent = function() {
+      alert('submitEvent');
+      // captcha();
     data = getFormData(cForm);
+    // console.log('data: ', data);
     submittedMsg = document.getElementById('submitMsg');
     $('#submitMsg i').css({'display': 'inline-block'});
 
@@ -132,23 +180,46 @@ window.addEventListener('load', function (event) {
 
        submittedMsg.textContent = 'Your message has been sent';
      },
-     error: function(xhr, status, error, message) {
+     error: function(xhr, status, errors, message) {
        $('#submitMsg i').css({'display': 'none'});
        if($(submittedMsg).hasClass('alert-success'))
         $(submittedMsg).removeClass('alert-success');
 
        $(submittedMsg).addClass('alert-danger');
        $(submittedMsg).css({'display' : 'inline-block'});
-       submittedMsg.textContent = 'There has been an error. Please try again later';
+       submittedMsg.textContent = 'There has been an error.';
+     },
+     complete: function() {
+          document.getElementById('form-residuals').classList.add('d-none');
      }
    });
-}
+};
 
-  if(sendMsgBtn != null){
-    cForm.addEventListener('submit', function(e) {
-
-    });
+  if(cForm !== null) {
+      // if(grecaptcha){
+      //     console.log('grecaptcha: ', grecaptcha);
+      // }
+      // grecaptcha.reset('google-recaptcha');
+      // grecaptcha.reset();
+      let widgetId = grecaptcha.render('google-recaptcha');
+      // console.log('widgetId:', widgetId);
+      cForm.addEventListener('submit', function(e) {
+          // alert('submit');
+          e.preventDefault();
+          _submitEvent();
+      });
   }
+
+  // function createCallback(widgetId) {
+  //     console.log('widgetId: ', widgetId);
+  //     grecaptcha.reset(widgetId);
+  // }
+
+  // if(sendMsgBtn != null){
+  //   cForm.addEventListener('submit', function(e) {
+  //       _submitEvent();
+  //   });
+  // }
 
   function smoothScroll(target, duration){
     var target = document.querySelector(target);

@@ -17,7 +17,8 @@
   <div class="container">
     <div class="row spaced-top-mod">
       <div class="col-md-5 offset-md-1 inplace-container">
-        <form class="contact-page-form" id="c-form" method="post">
+        <form class="contact-page-form" id="c-form" method="post" action="{{route('send_contact')}}">
+            {{csrf_field()}}
           <div class="form-group name">
             <input type="text" name="name" placeholder="Your Name *" class="form-control" autocomplete="off" required>
           </div>
@@ -38,32 +39,17 @@
           </div>
 
           <label for="note" class="blink notdec spaced-top-mod">Please tell us more about your enquiry *</label>
-          <div class="form-group note">
-            <textarea name="c-form-message" id="c-form-message"
-            cols="30" rows="10" placeholder="Add note here..." class="form-control" required></textarea>
-          </div>
-
-          {{-- <div class="upload-btns">
-            <div class="row">
-              <div class="col-md-5 col-sm-12 form-group nlp">
-                <label class="btn btn-lg btn-outline-dark input-btn">
-                  <input type="file" class="upload-input" name="upfile">
-                  <i class="fas fa-cloud-upload-alt"></i> Upload file
-                </label>
+            <div id="form-residuals">
+              <div class="form-group note">
+                <textarea name="c-form-message" id="c-form-message"
+                cols="30" rows="10" placeholder="Add note here..." class="form-control" required></textarea>
               </div>
-              <div class="col-md-5 col-sm-12 offset-md-1 form-group">
-                <label class="form-note">Max files size 10Mb.</label>
-              </div>
-            </div>
-            <div class="row">
-              <a href="#" class="blink">Upload another file</a>
-            </div>
-          </div> --}}
-          <div class="col-12 mx-auto">
-            {!! app('captcha')->render(); !!}
-          </div>
+                <div class="col-md-9 col-sm-12">
+                    <div class="g-recaptcha" id="google-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
+                </div>
 
-          <button type="submit" class="pink-button-lg spaced-top" id="sendMessagePage">send message</button>
+              <button type="submit" class="pink-button-lg spaced-top" id="sendMessagePage">send message</button>
+            </div>
         </form>
         <img src="{{asset('img/contact/undraw-mail-cg-1-t.svg')}}" alt="Message" id="msgImg" class="transparent inplace">
       </div>
