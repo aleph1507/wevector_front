@@ -48,7 +48,7 @@
                     <div class="g-recaptcha" id="google-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
                 </div>
 
-              <button type="submit" class="pink-button-lg spaced-top" id="sendMessagePage">send message</button>
+              <button type="submit" class="pink-button-lg spaced-top mb-5 mb-md-0" id="sendMessagePage">send message</button>
             </div>
         </form>
         <img src="{{asset('img/contact/undraw-mail-cg-1-t.svg')}}" alt="Message" id="msgImg" class="transparent inplace">

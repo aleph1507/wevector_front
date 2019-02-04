@@ -245,10 +245,10 @@
                 {{--<div class="g-recaptcha" id="google-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>--}}
             {{--</div>--}}
           <div class="row">
-            <div class="col-12 mx-auto">
-              <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit">send message</button>
+            <div class="col-12 mx-auto mt-5">
+              <button type="submit" name="c-form-submit" id="c-form-submit" class="c-form-submit mt-3 mb-4">send message</button>
             </div>
-            <div id="submitMsg" class="col-xs-10 col-md-6 col-lg-4 alert mx-auto mt-5">
+            <div id="submitMsg" class="col-xs-10 col-md-6 col-lg-4 alert mx-auto mt-5 mt-md-0">
               <i class="fa fa-spinner fa-spin" style="font-size:48px;color:red"></i>
             </div>
           </div>
