@@ -17,6 +17,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon/favicon-32x32.png')}}">
   <link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon/favicon-96x96.png')}}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon/favicon-16x16.png')}}">
+  <meta name="description" content="We transform raster graphics into beautiful, pixel perfect vector artworks. Find us at Nikola Trimpare 33, 1-4, Skopje, Macedonia.">
   <link rel="manifest" href="{{asset('img/favicon/manifest.json')}}">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="{{asset('img/favicon/ms-icon-144x144.png')}}">
